@@ -1,0 +1,1916 @@
+// .transaction-page {
+//   width: 100%;
+//   min-height: 100%;
+//   box-sizing: border-box;
+//   color: #29354d;
+// }
+
+// /* =========================================
+//    MAIN GRID
+// ========================================= */
+
+// .transaction-grid {
+//   display: grid;
+
+//   grid-template-columns:
+//     minmax(0, 1fr)
+//     190px
+//     190px;
+
+//   grid-template-areas:
+//     "earnings order courses"
+//     "latest latest courses";
+
+//   gap: 18px;
+
+//   width: 100%;
+// }
+
+// /* =========================================
+//    EARNINGS
+// ========================================= */
+
+// .earnings-card {
+//   grid-area: earnings;
+
+//   min-height: 190px;
+
+//   background: #ffffff;
+
+//   border-radius: 10px;
+
+//   padding: 18px 18px;
+
+//   box-sizing: border-box;
+
+//   display: flex;
+//   align-items: center;
+
+//   gap: 20px;
+
+//   box-shadow: 0 4px 18px rgba(41, 53, 77, 0.025);
+// }
+
+// .earnings-info {
+//   width: 105px;
+//   min-width: 105px;
+
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .earnings-info h2 {
+//   margin: 0 0 5px;
+
+//   font-size: 12px;
+//   font-weight: 700;
+// }
+
+// .earning-date {
+//   font-size: 8px;
+//   color: #aaa5b5;
+
+//   margin-bottom: 14px;
+// }
+
+// .earning-label {
+//   font-size: 9px;
+//   color: #59657a;
+
+//   margin-bottom: 3px;
+// }
+
+// .earnings-info strong {
+//   font-size: 19px;
+//   color: #29354d;
+
+//   line-height: 1.2;
+
+//   margin-bottom: 6px;
+// }
+
+// .earning-growth {
+//   width: fit-content;
+
+//   font-size: 8px;
+//   font-weight: 600;
+
+//   color: #4cc4a8;
+// }
+
+// .earning-growth::first-letter {
+//   font-size: 11px;
+// }
+
+// /* =========================================
+//    CHART
+// ========================================= */
+
+// .earning-chart {
+//   flex: 1;
+
+//   height: 165px;
+
+//   display: flex;
+
+//   min-width: 0;
+// }
+
+// .chart-y-axis {
+//   width: 30px;
+
+//   height: 140px;
+
+//   padding-top: 4px;
+
+//   display: flex;
+//   flex-direction: column;
+
+//   justify-content: space-between;
+
+//   font-size: 7px;
+
+//   color: #a5a7b1;
+// }
+
+// .chart-area {
+//   position: relative;
+
+//   flex: 1;
+
+//   min-width: 0;
+
+//   height: 150px;
+// }
+
+// .chart-lines {
+//   position: absolute;
+
+//   inset: 0 0 20px 0;
+
+//   display: flex;
+//   flex-direction: column;
+
+//   justify-content: space-between;
+
+//   pointer-events: none;
+// }
+
+// .chart-lines span {
+//   width: 100%;
+
+//   border-top: 1px dashed #e5e7eb;
+// }
+
+// /* =========================================
+//    BARS
+// ========================================= */
+
+// .bars {
+//   position: absolute;
+
+//   left: 0;
+//   right: 0;
+//   bottom: 17px;
+//   top: 0;
+
+//   display: flex;
+
+//   align-items: flex-end;
+
+//   justify-content: space-between;
+
+//   gap: 7px;
+
+//   z-index: 2;
+// }
+
+// .bar-column {
+//   height: 100%;
+
+//   flex: 1;
+
+//   min-width: 10px;
+
+//   display: flex;
+//   flex-direction: column;
+
+//   align-items: center;
+
+//   justify-content: flex-end;
+// }
+
+// .bar-pair {
+//   width: 100%;
+
+//   height: 100%;
+
+//   display: flex;
+
+//   align-items: flex-end;
+
+//   justify-content: center;
+
+//   gap: 4px;
+// }
+
+// .earning-bar {
+//   position: relative;
+
+//   width: 13px;
+
+//   max-width: 14px;
+
+//   border-radius: 4px 4px 3px 3px;
+
+//   cursor: pointer;
+
+//   transition:
+//     transform 0.2s ease,
+//     filter 0.2s ease;
+// }
+
+// .earning-bar:hover {
+//   transform: translateY(-3px);
+
+//   filter: brightness(1.04);
+// }
+
+// .earning-bar.green {
+//   background: #4cc4a8;
+// }
+
+// .earning-bar.orange {
+//   background: #ffbd45;
+// }
+
+// /* =========================================
+//    TOOLTIP
+// ========================================= */
+
+// .earning-tooltip {
+//   position: absolute;
+
+//   left: 50%;
+//   bottom: calc(100% + 9px);
+
+//   transform: translateX(-50%);
+
+//   width: 48px;
+
+//   padding: 7px 8px;
+
+//   border-radius: 4px;
+
+//   background: #29354d;
+
+//   color: #ffffff;
+
+//   display: flex;
+//   flex-direction: column;
+
+//   align-items: center;
+
+//   z-index: 20;
+
+//   box-shadow: 0 7px 15px rgba(41, 53, 77, 0.18);
+// }
+
+// .earning-tooltip strong {
+//   font-size: 9px;
+//   line-height: 12px;
+// }
+
+// .earning-tooltip span {
+//   font-size: 7px;
+//   opacity: 0.75;
+// }
+
+// .earning-tooltip i {
+//   position: absolute;
+
+//   bottom: -5px;
+//   left: 50%;
+
+//   transform: translateX(-50%);
+
+//   width: 0;
+//   height: 0;
+
+//   border-left: 5px solid transparent;
+//   border-right: 5px solid transparent;
+
+//   border-top: 5px solid #29354d;
+// }
+
+// .month {
+//   position: absolute;
+
+//   bottom: -15px;
+
+//   font-size: 7px;
+
+//   color: #aaa5b5;
+// }
+
+// /* =========================================
+//    RIGHT CARDS
+// ========================================= */
+
+// .side-top-card {
+//   background: #ffffff;
+
+//   border-radius: 10px;
+
+//   padding: 18px 15px;
+
+//   box-sizing: border-box;
+
+//   box-shadow: 0 4px 18px rgba(41, 53, 77, 0.025);
+// }
+
+// .total-order-card {
+//   grid-area: order;
+
+//   min-height: 110px;
+// }
+
+// .side-top-card h3 {
+//   margin: 0 0 7px;
+
+//   font-size: 11px;
+//   font-weight: 700;
+// }
+
+// .order-number {
+//   display: inline-block;
+
+//   font-size: 18px;
+//   font-weight: 800;
+
+//   margin-right: 5px;
+// }
+
+// .order-growth {
+//   color: #4cc4a8;
+
+//   font-size: 8px;
+//   font-weight: 700;
+// }
+
+// .side-top-card p {
+//   margin: 9px 0 0;
+
+//   color: #aaa5b5;
+
+//   font-size: 7px;
+
+//   line-height: 11px;
+// }
+
+// /* =========================================
+//    EARNING COURSES
+// ========================================= */
+
+// .earning-courses-card {
+//   grid-area: courses;
+
+//   min-height: 285px;
+// }
+
+// .course-month {
+//   display: block;
+
+//   font-size: 8px;
+
+//   color: #59657a;
+
+//   margin-bottom: 2px;
+// }
+
+// .earning-courses-card > strong {
+//   display: block;
+
+//   font-size: 18px;
+
+//   margin-bottom: 5px;
+// }
+
+// .donut-wrapper {
+//   width: 100%;
+
+//   display: flex;
+//   justify-content: center;
+
+//   margin: 8px 0 10px;
+// }
+
+// .donut {
+//   position: relative;
+
+//   width: 100px;
+//   height: 100px;
+
+//   border-radius: 50%;
+
+//   background:
+//     conic-gradient(
+//       #ff665c 0deg 175deg,
+//       #ffbd45 175deg 270deg,
+//       #4cc4a8 270deg 350deg,
+//       #e8e8e8 350deg 360deg
+//     );
+
+//   transform: rotate(-15deg);
+// }
+
+// .donut::after {
+//   content: "";
+
+//   position: absolute;
+
+//   inset: 19px;
+
+//   border-radius: 50%;
+
+//   background: #ffffff;
+// }
+
+// .donut-center {
+//   display: none;
+// }
+
+// .course-legend {
+//   display: flex;
+//   flex-direction: column;
+
+//   gap: 7px;
+// }
+
+// .course-legend > div {
+//   display: grid;
+
+//   grid-template-columns: 10px 1fr auto;
+
+//   align-items: center;
+
+//   gap: 5px;
+
+//   font-size: 8px;
+
+//   color: #9b99aa;
+// }
+
+// .course-legend b {
+//   color: #29354d;
+
+//   font-size: 8px;
+// }
+
+// .legend-dot {
+//   width: 4px;
+//   height: 4px;
+
+//   border-radius: 50%;
+// }
+
+// .legend-dot.design {
+//   background: #ffbd45;
+// }
+
+// .legend-dot.programming {
+//   background: #ff665c;
+// }
+
+// .legend-dot.science {
+//   background: #4cc4a8;
+// }
+
+// /* =========================================
+//    LATEST TRANSACTION
+// ========================================= */
+
+// .latest-transaction-card {
+//   grid-area: latest;
+
+//   min-height: 205px;
+
+//   background: #ffffff;
+
+//   border-radius: 10px;
+
+//   padding: 18px;
+
+//   box-sizing: border-box;
+
+//   box-shadow: 0 4px 18px rgba(41, 53, 77, 0.025);
+// }
+
+// .latest-header {
+//   display: flex;
+
+//   align-items: center;
+
+//   justify-content: space-between;
+
+//   margin-bottom: 13px;
+// }
+
+// .latest-header h2 {
+//   margin: 0;
+
+//   font-size: 12px;
+
+//   font-weight: 700;
+// }
+
+// .view-all-button {
+//   border: none;
+
+//   background: transparent;
+
+//   color: #9992ad;
+
+//   font-size: 8px;
+
+//   cursor: pointer;
+
+//   padding: 4px 0;
+
+//   transition: color 0.2s ease;
+// }
+
+// .view-all-button:hover {
+//   color: #4cc4a8;
+// }
+
+// /* =========================================
+//    TABLE
+// ========================================= */
+
+// .transaction-table-wrapper {
+//   width: 100%;
+
+//   overflow-x: auto;
+// }
+
+// .transaction-table {
+//   width: 100%;
+
+//   border-collapse: collapse;
+
+//   min-width: 620px;
+// }
+
+// .transaction-table th {
+//   text-align: left;
+
+//   padding: 0 8px 10px;
+
+//   border-bottom: 1px solid #f0f0f2;
+
+//   color: #aaa5b5;
+
+//   font-size: 7px;
+
+//   font-weight: 500;
+// }
+
+// .transaction-table th button {
+//   border: none;
+
+//   background: transparent;
+
+//   padding: 0;
+
+//   display: inline-flex;
+
+//   align-items: center;
+
+//   gap: 2px;
+
+//   color: inherit;
+
+//   font: inherit;
+
+//   cursor: pointer;
+// }
+
+// .transaction-table th button:hover {
+//   color: #4cc4a8;
+// }
+
+// .transaction-table th svg {
+//   font-size: 11px;
+// }
+
+// .transaction-table td {
+//   padding: 12px 8px;
+
+//   border-bottom: 1px solid #f5f5f6;
+
+//   color: #29354d;
+
+//   font-size: 8px;
+
+//   white-space: nowrap;
+// }
+
+// .transaction-name {
+//   font-weight: 600;
+// }
+
+// /* =========================================
+//    STATUS
+// ========================================= */
+
+// .transaction-status {
+//   display: inline-flex;
+
+//   align-items: center;
+//   justify-content: center;
+
+//   min-width: 70px;
+
+//   height: 25px;
+
+//   padding: 0 10px;
+
+//   border-radius: 7px;
+
+//   font-size: 7px;
+
+//   font-weight: 500;
+// }
+
+// .transaction-status.completed {
+//   color: #4cc4a8;
+
+//   background: #e7f8f4;
+
+//   border: 1px solid #a8e4d7;
+// }
+
+// .transaction-status.pending {
+//   color: #f4ae35;
+
+//   background: #fff8e8;
+
+//   border: 1px solid #ffd47b;
+// }
+
+// .transaction-status.canceled {
+//   color: #ff625a;
+
+//   background: #fff0ef;
+
+//   border: 1px solid #ffaaa5;
+// }
+
+// /* =========================================
+//    DOWNLOAD
+// ========================================= */
+
+// .download-button {
+//   border: none;
+
+//   background: transparent;
+
+//   color: #aaa5b5;
+
+//   font-size: 8px;
+
+//   display: inline-flex;
+
+//   align-items: center;
+
+//   gap: 4px;
+
+//   cursor: pointer;
+
+//   transition: color 0.2s ease;
+// }
+
+// .download-button:hover {
+//   color: #4cc4a8;
+// }
+
+// .download-button svg {
+//   font-size: 13px;
+// }
+
+// /* =========================================
+//    PAGINATION
+// ========================================= */
+
+// .transaction-pagination {
+//   display: flex;
+
+//   justify-content: flex-end;
+
+//   align-items: center;
+
+//   gap: 5px;
+
+//   margin-top: 12px;
+// }
+
+// .transaction-pagination button {
+//   width: 26px;
+//   height: 26px;
+
+//   border: none;
+
+//   border-radius: 7px;
+
+//   background: #f0faf7;
+
+//   color: #4cc4a8;
+
+//   font-size: 8px;
+
+//   cursor: pointer;
+// }
+
+// .transaction-pagination button.active {
+//   background: #4cc4a8;
+
+//   color: #ffffff;
+// }
+
+// .transaction-pagination button:disabled {
+//   opacity: 0.4;
+
+//   cursor: not-allowed;
+// }
+
+// /* =========================================
+//    TABLET
+// ========================================= */
+
+// @media (max-width: 1150px) {
+//   .transaction-grid {
+//     grid-template-columns:
+//       minmax(0, 1fr)
+//       180px;
+
+//     grid-template-areas:
+//       "earnings order"
+//       "latest courses";
+//   }
+// }
+
+// /* =========================================
+//    SMALL TABLET
+// ========================================= */
+
+// @media (max-width: 900px) {
+//   .transaction-grid {
+//     grid-template-columns: 1fr;
+
+//     grid-template-areas:
+//       "earnings"
+//       "order"
+//       "courses"
+//       "latest";
+//   }
+
+//   .earnings-card {
+//     min-height: 220px;
+//   }
+
+//   .total-order-card,
+//   .earning-courses-card {
+//     min-height: auto;
+//   }
+
+//   .earning-courses-card {
+//     padding-bottom: 20px;
+//   }
+
+//   .donut-wrapper {
+//     margin: 15px 0;
+//   }
+// }
+
+// /* =========================================
+//    MOBILE
+// ========================================= */
+
+// @media (max-width: 600px) {
+//   .transaction-grid {
+//     gap: 12px;
+//   }
+
+//   .earnings-card {
+//     padding: 15px;
+
+//     flex-direction: column;
+
+//     align-items: stretch;
+
+//     gap: 10px;
+//   }
+
+//   .earnings-info {
+//     width: 100%;
+//   }
+
+//   .earning-chart {
+//     height: 175px;
+//   }
+
+//   .chart-area {
+//     height: 160px;
+//   }
+
+//   .earning-bar {
+//     width: 9px;
+//   }
+
+//   .bar-pair {
+//     gap: 2px;
+//   }
+
+//   .latest-transaction-card {
+//     padding: 14px;
+//   }
+
+//   .transaction-table {
+//     min-width: 600px;
+//   }
+
+//   .side-top-card {
+//     padding: 16px;
+//   }
+// }
+
+// /* =========================================
+//    VERY SMALL MOBILE
+// ========================================= */
+
+// @media (max-width: 400px) {
+//   .earnings-card {
+//     padding: 12px;
+//   }
+
+//   .earning-chart {
+//     transform-origin: left center;
+//   }
+
+//   .earning-bar {
+//     width: 7px;
+//   }
+
+//   .bars {
+//     gap: 3px;
+//   }
+
+//   .earning-tooltip {
+//     width: 43px;
+//   }
+
+//   .earning-tooltip strong {
+//     font-size: 8px;
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+.transaction-page {
+  width: 100%;
+  box-sizing: border-box;
+  color: #29354d;
+}
+
+/* =========================================
+   MAIN TOP GRID
+   LEFT = EARNINGS
+   RIGHT = TOTAL ORDER + EARNING COURSES
+========================================= */
+
+.transaction-grid {
+  width: 100%;
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) 205px;
+  grid-template-rows: auto auto;
+
+  column-gap: 18px;
+  row-gap: 18px;
+
+  align-items: start;
+}
+
+/* =========================================
+   EARNINGS CARD
+   LEFT SIDE ONLY
+========================================= */
+
+.earnings-card {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+
+  width: 100%;
+  min-width: 0;
+  height: 390px;
+
+  padding: 20px 18px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  gap: 18px;
+
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+/* =========================================
+   EARNINGS INFO
+========================================= */
+
+.earnings-info {
+  width: 105px;
+  min-width: 105px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.earnings-info h2 {
+  margin: 0 0 5px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  color: #344158;
+}
+
+.earning-date {
+  margin: 0 0 17px;
+
+  font-size: 8px;
+  color: #aaa7b5;
+}
+
+.earning-label {
+  margin-bottom: 4px;
+
+  font-size: 8px;
+  color: #777489;
+}
+
+.earnings-info > strong {
+  font-size: 20px;
+  line-height: 1.1;
+
+  color: #344158;
+}
+
+.earning-growth {
+  margin-top: 8px;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  color: #49bea3;
+}
+
+/* =========================================
+   EARNING CHART
+========================================= */
+
+.earning-chart {
+  flex: 1;
+  min-width: 0;
+
+  height: 350px;
+
+  display: flex;
+}
+
+.chart-y-axis {
+  width: 30px;
+  min-width: 30px;
+
+  height: 315px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-top: 3px;
+  padding-bottom: 18px;
+
+  box-sizing: border-box;
+
+  font-size: 7px;
+  color: #aaa7b5;
+}
+
+.chart-area {
+  position: relative;
+
+  flex: 1;
+  min-width: 0;
+
+  height: 315px;
+}
+
+/* =========================================
+   CHART LINES
+========================================= */
+
+.chart-lines {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chart-lines span {
+  width: 100%;
+
+  border-top: 1px dashed #e7e9ed;
+}
+
+/* =========================================
+   BARS
+========================================= */
+
+.bars {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 0 5px 18px 2px;
+
+  box-sizing: border-box;
+}
+
+.bar-column {
+  position: relative;
+
+  width: 22px;
+  height: 100%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.bar-pair {
+  width: 18px;
+
+  height: 100%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  gap: 3px;
+}
+
+/* =========================================
+   BARS
+========================================= */
+
+.earning-bar {
+  position: relative;
+
+  width: 7px;
+
+  min-height: 12px;
+
+  border-radius: 4px 4px 2px 2px;
+
+  transition:
+    width 0.2s ease,
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+.earning-bar.green {
+  background: #4cc4a8;
+}
+
+.earning-bar.orange {
+  background: #ffbd45;
+}
+
+.bar-column:hover .earning-bar {
+  width: 9px;
+  filter: brightness(0.96);
+}
+
+/* =========================================
+   MONTH
+========================================= */
+
+.month {
+  position: absolute;
+
+  bottom: -2px;
+
+  transform: translateY(100%);
+
+  font-size: 7px;
+
+  color: #a09cab;
+
+  white-space: nowrap;
+}
+
+/* =========================================
+   TOOLTIP
+========================================= */
+
+.earning-tooltip {
+  position: absolute;
+
+  left: 50%;
+  bottom: 100%;
+
+  transform: translateX(-50%) translateY(-8px);
+
+  z-index: 20;
+
+  min-width: 58px;
+
+  padding: 7px 8px;
+
+  border-radius: 5px;
+
+  background: #29354d;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  box-shadow: 0 6px 15px rgba(41, 53, 77, 0.15);
+
+  pointer-events: none;
+}
+
+.earning-tooltip strong {
+  display: block;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.earning-tooltip span {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 7px;
+
+  color: #c9cfda;
+}
+
+.earning-tooltip i {
+  position: absolute;
+
+  left: 50%;
+  bottom: -5px;
+
+  width: 0;
+  height: 0;
+
+  transform: translateX(-50%);
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #29354d;
+}
+
+/* =========================================
+   RIGHT SIDE CARDS
+========================================= */
+
+.side-top-card {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+}
+
+/* =========================================
+   TOTAL ORDER
+   RIGHT TOP
+========================================= */
+
+.total-order-card {
+  grid-column: 2;
+  grid-row: 1;
+
+  min-height: 155px;
+
+  padding: 18px 16px;
+}
+
+.total-order-card h3,
+.earning-courses-card h3 {
+  margin: 0;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  color: #344158;
+}
+
+.order-number {
+  display: inline-block;
+
+  margin-top: 8px;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  color: #344158;
+}
+
+.order-growth {
+  margin-left: 5px;
+
+  font-size: 7px;
+  font-weight: 700;
+
+  color: #4cc4a8;
+}
+
+.total-order-card p {
+  margin: 8px 0 0;
+
+  font-size: 7px;
+  line-height: 12px;
+
+  color: #aaa7b5;
+}
+
+/* =========================================
+   EARNING COURSES
+   RIGHT BELOW TOTAL ORDER
+========================================= */
+
+.earning-courses-card {
+  grid-column: 2;
+  grid-row: 2;
+
+  min-height: 217px;
+
+  padding: 16px;
+}
+
+.course-month {
+  display: block;
+
+  margin-top: 7px;
+
+  font-size: 7px;
+
+  color: #777489;
+}
+
+.earning-courses-card > strong {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 18px;
+
+  color: #344158;
+}
+
+/* =========================================
+   DONUT
+========================================= */
+
+.donut-wrapper {
+  display: flex;
+
+  justify-content: center;
+
+  margin: 10px 0;
+}
+
+.donut {
+  width: 78px;
+  height: 78px;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      #ff6659 0 50%,
+      #ffbd45 50% 77%,
+      #4cc4a8 77% 100%
+    );
+
+  position: relative;
+
+  transform: rotate(-25deg);
+}
+
+.donut-center {
+  position: absolute;
+
+  width: 46px;
+  height: 46px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: #ffffff;
+
+  border-radius: 50%;
+}
+
+/* =========================================
+   COURSE LEGEND
+========================================= */
+
+.course-legend {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.course-legend > div {
+  display: grid;
+
+  grid-template-columns: 7px 1fr auto;
+
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 7px;
+
+  color: #a09cab;
+}
+
+.course-legend b {
+  color: #344158;
+
+  font-weight: 700;
+}
+
+.legend-dot {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+}
+
+.legend-dot.design {
+  background: #ffbd45;
+}
+
+.legend-dot.programming {
+  background: #ff6659;
+}
+
+.legend-dot.science {
+  background: #4cc4a8;
+}
+
+/* =========================================
+   LATEST TRANSACTION
+   FULL WIDTH BELOW EVERYTHING
+========================================= */
+
+.latest-transaction-card {
+  grid-column: 1 / -1;
+
+  width: 100%;
+
+  margin-top: 0;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+/* =========================================
+   LATEST HEADER
+========================================= */
+
+.latest-header {
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+
+  box-sizing: border-box;
+}
+
+.latest-header h2 {
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  color: #344158;
+}
+
+.view-all-button {
+  border: none;
+
+  background: transparent;
+
+  color: #aaa7b5;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.view-all-button:hover {
+  color: #4cc4a8;
+}
+
+/* =========================================
+   TABLE
+========================================= */
+
+.transaction-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.transaction-table {
+  width: 100%;
+
+  min-width: 650px;
+
+  border-collapse: collapse;
+}
+
+.transaction-table thead {
+  border-top: 1px solid #f1f2f4;
+  border-bottom: 1px solid #f1f2f4;
+}
+
+.transaction-table th {
+  height: 38px;
+
+  padding: 0 16px;
+
+  text-align: left;
+
+  font-size: 7px;
+  font-weight: 500;
+
+  color: #aaa7b5;
+}
+
+.transaction-table th button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 3px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: inherit;
+
+  font: inherit;
+
+  cursor: pointer;
+}
+
+.transaction-table th button:hover {
+  color: #4cc4a8;
+}
+
+.transaction-table th svg {
+  font-size: 11px;
+}
+
+.transaction-table td {
+  height: 50px;
+
+  padding: 0 16px;
+
+  border-bottom: 1px solid #f1f2f4;
+
+  font-size: 8px;
+
+  color: #697184;
+}
+
+.transaction-table tbody tr:hover {
+  background: #fafcfb;
+}
+
+.transaction-name {
+  color: #344158 !important;
+
+  font-weight: 600;
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.transaction-status {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 72px;
+
+  height: 25px;
+
+  border-radius: 7px;
+
+  font-size: 7px;
+}
+
+.transaction-status.completed {
+  background: #e8f8f4;
+
+  border: 1px solid #4cc4a8;
+
+  color: #4cc4a8;
+}
+
+.transaction-status.pending {
+  background: #fff7e8;
+
+  border: 1px solid #ffbd45;
+
+  color: #f0a51e;
+}
+
+.transaction-status.canceled {
+  background: #fff0ee;
+
+  border: 1px solid #ff766c;
+
+  color: #ff6659;
+}
+
+/* =========================================
+   DOWNLOAD
+========================================= */
+
+.download-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #aaa7b5;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.download-button svg {
+  font-size: 13px;
+}
+
+.download-button:hover {
+  color: #4cc4a8;
+}
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.transaction-pagination {
+  min-height: 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 7px;
+
+  padding: 8px 16px;
+
+  box-sizing: border-box;
+}
+
+.transaction-pagination button {
+  width: 24px;
+  height: 24px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: #edf8f5;
+
+  color: #4cc4a8;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.transaction-pagination button.active {
+  background: #4cc4a8;
+
+  color: #ffffff;
+}
+
+.transaction-pagination button:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+/* =========================================
+   LARGE TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .transaction-grid {
+    grid-template-columns: minmax(0, 1fr) 190px;
+    gap: 15px;
+  }
+
+  .earnings-card {
+    height: 360px;
+  }
+
+  .earning-chart {
+    height: 320px;
+  }
+
+  .chart-area {
+    height: 285px;
+  }
+
+  .chart-y-axis {
+    height: 285px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+  .transaction-grid {
+    grid-template-columns: 1fr 180px;
+    gap: 14px;
+  }
+
+  .earnings-card {
+    height: 340px;
+
+    padding: 16px 14px;
+  }
+
+  .earnings-info {
+    width: 90px;
+    min-width: 90px;
+  }
+
+  .earning-chart {
+    height: 300px;
+  }
+
+  .chart-area {
+    height: 265px;
+  }
+
+  .chart-y-axis {
+    height: 265px;
+  }
+
+  .total-order-card {
+    min-height: 145px;
+  }
+
+  .earning-courses-card {
+    min-height: 200px;
+  }
+}
+
+/* =========================================
+   SMALL TABLET
+========================================= */
+
+@media (max-width: 700px) {
+  .transaction-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .earnings-card {
+    grid-column: 1;
+    grid-row: auto;
+
+    height: 320px;
+
+    width: 100%;
+  }
+
+  .total-order-card {
+    grid-column: 1;
+    grid-row: auto;
+
+    min-height: 125px;
+  }
+
+  .earning-courses-card {
+    grid-column: 1;
+    grid-row: auto;
+
+    min-height: 210px;
+  }
+
+  .latest-transaction-card {
+    grid-column: 1;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .earnings-card {
+    height: auto;
+
+    min-height: 320px;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    padding: 15px;
+  }
+
+  .earnings-info {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .earning-date {
+    margin-bottom: 8px;
+  }
+
+  .earning-chart {
+    width: 100%;
+
+    height: 230px;
+  }
+
+  .chart-y-axis {
+    width: 25px;
+    min-width: 25px;
+
+    height: 205px;
+  }
+
+  .chart-area {
+    height: 205px;
+  }
+
+  .bars {
+    padding-right: 2px;
+  }
+
+  .bar-column {
+    width: 18px;
+  }
+
+  .bar-pair {
+    width: 15px;
+  }
+
+  .earning-bar {
+    width: 6px;
+  }
+
+  .bar-column:hover .earning-bar {
+    width: 8px;
+  }
+
+  .month {
+    font-size: 6px;
+  }
+
+  .latest-header {
+    padding: 0 12px;
+  }
+
+  .transaction-pagination {
+    padding: 10px 12px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+  .transaction-page {
+    width: 100%;
+  }
+
+  .earnings-card {
+    padding: 13px;
+  }
+
+  .earning-total,
+  .earnings-info > strong {
+    font-size: 18px;
+  }
+
+  .earning-chart {
+    height: 215px;
+  }
+
+  .chart-area {
+    height: 190px;
+  }
+
+  .chart-y-axis {
+    height: 190px;
+  }
+
+  .transaction-table {
+    min-width: 620px;
+  }
+
+  .latest-header {
+    height: 50px;
+  }
+
+  .latest-header h2 {
+    font-size: 11px;
+  }
+
+  .view-all-button {
+    font-size: 8px;
+  }
+}

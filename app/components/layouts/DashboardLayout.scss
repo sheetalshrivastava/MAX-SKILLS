@@ -1,0 +1,252 @@
+// .dashboard-layout {
+//   width: 100%;
+//   min-height: 100vh;
+
+//   display: flex;
+
+//   background: #f6f7f9;
+// }
+
+// .dashboard-right {
+//   flex: 1;
+
+//   min-width: 0;
+
+//   min-height: 100vh;
+
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .dashboard-content {
+//   flex: 1;
+
+//   padding: 20px;
+
+//   overflow-x: hidden;
+// }
+
+// /* MOBILE */
+
+// @media (max-width: 700px) {
+//   .dashboard-content {
+//     padding: 14px;
+//   }
+// }
+
+
+
+
+
+
+// .dashboard-layout {
+//   width: 100%;
+//   min-height: 100vh;
+
+//   display: flex;
+
+//   background: #f6f7f9;
+// }
+
+// .dashboard-right {
+//   flex: 1;
+
+//   min-width: 0;
+//   min-height: 100vh;
+
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .dashboard-content {
+//   flex: 1;
+
+//   width: 100%;
+
+//   padding: 22px 24px;
+
+//   overflow-x: hidden;
+// }
+
+// /* =========================
+//    TABLET
+// ========================= */
+
+// @media (max-width: 900px) {
+//   .dashboard-content {
+//     padding: 18px;
+//   }
+// }
+
+// /* =========================
+//    MOBILE
+// ========================= */
+
+// @media (max-width: 700px) {
+//   .dashboard-content {
+//     padding: 14px;
+//   }
+// }
+
+
+
+
+
+
+
+// .dashboard-layout {
+//   width: 100%;
+//   min-height: 100vh;
+
+//   display: flex;
+
+//   background: #f5f6f8;
+
+//   overflow-x: hidden;
+// }
+
+// /* =========================
+//    RIGHT CONTENT
+// ========================= */
+
+// .dashboard-content {
+//   flex: 1;
+//   min-width: 0;
+//   min-height: 100vh;
+
+//   display: flex;
+//   flex-direction: column;
+
+//   margin: 0;
+//   padding: 0;
+// }
+
+// /* =========================
+//    PAGE CONTENT
+// ========================= */
+
+// .dashboard-main {
+//   flex: 1;
+
+//   width: 100%;
+
+//   padding: 30px;
+
+//   box-sizing: border-box;
+// }
+
+// /* =========================
+//    TABLET
+// ========================= */
+
+// @media (max-width: 1100px) {
+//   .dashboard-main {
+//     padding: 24px;
+//   }
+// }
+
+// /* =========================
+//    MOBILE
+// ========================= */
+
+// @media (max-width: 700px) {
+//   .dashboard-main {
+//     padding: 20px 15px;
+//   }
+// }
+
+// @media (max-width: 480px) {
+//   .dashboard-main {
+//     padding: 16px 12px;
+//   }
+// }
+
+
+
+
+
+
+
+
+.dashboard-layout {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+
+  background: #f5f6f8;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.dashboard-content {
+  flex: 1;
+
+  min-width: 0;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================
+   HEADER KE NICHE PAGE
+========================================= */
+
+.dashboard-main {
+  flex: 1;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .dashboard-main {
+    padding: 24px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .dashboard-main {
+    padding: 20px 15px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .dashboard-main {
+    padding: 16px 12px;
+  }
+}

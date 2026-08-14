@@ -1,0 +1,775 @@
+.live-class-page {
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 225px;
+  gap: 18px;
+
+  box-sizing: border-box;
+
+  color: #344158;
+}
+
+/* =========================================
+   MAIN LIVE CLASS
+========================================= */
+
+.live-main-card {
+  min-width: 0;
+
+  background: #ffffff;
+  border-radius: 9px;
+
+  padding: 18px 20px 14px;
+
+  box-sizing: border-box;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.live-class-header {
+  min-height: 40px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.live-class-header h1 {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 20px;
+
+  font-weight: 800;
+
+  color: #344158;
+}
+
+.live-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  margin-top: 5px;
+
+  font-size: 8px;
+  color: #aaa7b5;
+}
+
+.meta-separator {
+  color: #d5d3da;
+}
+
+.more-button {
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+
+  color: #9995a9;
+
+  cursor: pointer;
+}
+
+.more-button svg {
+  font-size: 19px;
+}
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.video-container {
+  position: relative;
+
+  width: 100%;
+  height: 285px;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background: #d9d9d9;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-play {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  color: #4cc4a8;
+}
+
+.video-play svg {
+  font-size: 30px;
+}
+
+.live-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 6px 10px;
+
+  border-radius: 4px;
+
+  background: #737c89;
+  color: #ffffff;
+
+  font-size: 7px;
+}
+
+.live-badge span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #ff6659;
+}
+
+/* =========================================
+   CLASS ENDED
+========================================= */
+
+.class-ended {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  text-align: center;
+}
+
+.class-ended strong {
+  font-size: 16px;
+}
+
+.class-ended span {
+  font-size: 9px;
+  color: #888594;
+}
+
+.class-ended button {
+  margin-top: 7px;
+
+  padding: 8px 14px;
+
+  border: none;
+  border-radius: 5px;
+
+  background: #4cc4a8;
+  color: #ffffff;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.live-bottom {
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 10px;
+}
+
+.students-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.students-title {
+  font-size: 8px;
+  font-weight: 700;
+
+  color: #344158;
+}
+
+.student-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.student-avatars span,
+.student-avatars b {
+  width: 14px;
+  height: 14px;
+
+  margin-right: 2px;
+
+  border-radius: 4px;
+
+  background: #d8d8d8;
+}
+
+.student-avatars b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #4cc4a8;
+
+  color: #ffffff;
+
+  font-size: 6px;
+}
+
+/* =========================================
+   CONTROLS
+========================================= */
+
+.live-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.control,
+.end-call {
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+.control {
+  border: 1px solid #e4e5e9;
+  background: #ffffff;
+
+  color: #536075;
+}
+
+.control.active {
+  background: #eef9f6;
+  border-color: #4cc4a8;
+  color: #4cc4a8;
+}
+
+.control:hover {
+  border-color: #4cc4a8;
+  color: #4cc4a8;
+}
+
+.control svg {
+  font-size: 16px;
+}
+
+.end-call {
+  border: none;
+
+  background: #ff6659;
+  color: #ffffff;
+}
+
+.end-call:hover {
+  background: #f05247;
+}
+
+.end-call svg {
+  font-size: 17px;
+}
+
+/* =========================================
+   RIGHT SIDEBAR
+========================================= */
+
+.live-right-sidebar {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* =========================================
+   COURSE CONTENT
+========================================= */
+
+.course-content-card {
+  background: #ffffff;
+  border-radius: 9px;
+
+  padding: 16px;
+
+  box-sizing: border-box;
+}
+
+.course-content-card h2,
+.live-chat-card h2 {
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  color: #344158;
+}
+
+.chapters {
+  margin-top: 12px;
+}
+
+.chapter {
+  border-bottom: 1px solid #f0f0f3;
+}
+
+.chapter:last-child {
+  border-bottom: none;
+}
+
+.chapter-header {
+  width: 100%;
+
+  min-height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #344158;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.chapter-header svg {
+  font-size: 15px;
+
+  color: #9e9aaa;
+}
+
+.chapter-header:hover {
+  color: #4cc4a8;
+}
+
+/* =========================================
+   LESSONS
+========================================= */
+
+.lesson-list {
+  padding-bottom: 5px;
+}
+
+.lesson {
+  width: 100%;
+
+  min-height: 37px;
+
+  display: grid;
+  grid-template-columns: 17px 1fr auto;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.lesson:hover {
+  color: #4cc4a8;
+}
+
+.lesson.active {
+  color: #4cc4a8;
+}
+
+.lesson-play {
+  width: 14px;
+  height: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #4cc4a8;
+
+  color: #ffffff;
+}
+
+.lesson-play svg {
+  font-size: 9px;
+}
+
+.lesson-name {
+  font-size: 8px;
+}
+
+.lesson-time {
+  font-size: 7px;
+
+  color: #777489;
+}
+
+/* =========================================
+   CHAT
+========================================= */
+
+.live-chat-card {
+  min-height: 215px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+  border-radius: 9px;
+
+  padding: 16px;
+
+  box-sizing: border-box;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+.chat-more {
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+
+  color: #9995a9;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   MESSAGES
+========================================= */
+
+.chat-messages {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 11px;
+
+  overflow-y: auto;
+
+  padding-right: 2px;
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 88%;
+}
+
+.chat-message.sent {
+  align-self: flex-end;
+
+  align-items: flex-end;
+}
+
+.chat-message.received {
+  align-self: flex-start;
+}
+
+.chat-user {
+  margin-bottom: 4px;
+
+  font-size: 7px;
+  font-weight: 700;
+
+  color: #344158;
+}
+
+.message-bubble {
+  padding: 7px 9px;
+
+  border-radius: 7px;
+
+  background: #eceaf0;
+
+  font-size: 7px;
+  line-height: 10px;
+
+  color: #777489;
+}
+
+.chat-message.sent .message-bubble {
+  background: #d9f3ec;
+  color: #697a78;
+}
+
+.message-time {
+  margin-top: 4px;
+
+  font-size: 6px;
+
+  color: #aaa7b5;
+}
+
+/* =========================================
+   CHAT INPUT
+========================================= */
+
+.chat-input-area {
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+
+  margin-top: 10px;
+
+  border-radius: 6px;
+
+  background: #f5f4f7;
+
+  padding-left: 9px;
+}
+
+.chat-input-area input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-size: 7px;
+
+  color: #344158;
+}
+
+.chat-input-area input::placeholder {
+  color: #aaa7b5;
+}
+
+.attach-button,
+.send-button {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.attach-button {
+  background: transparent;
+
+  color: #aaa7b5;
+}
+
+.send-button {
+  margin-right: 2px;
+
+  border-radius: 6px;
+
+  background: #4cc4a8;
+  color: #ffffff;
+}
+
+.attach-button svg {
+  font-size: 14px;
+}
+
+.send-button svg {
+  font-size: 13px;
+}
+
+.send-button:hover {
+  background: #38ad92;
+}
+
+/* =========================================
+   LARGE TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .live-class-page {
+    grid-template-columns: minmax(0, 1fr) 210px;
+    gap: 14px;
+  }
+
+  .live-main-card {
+    padding: 16px;
+  }
+
+  .video-container {
+    height: 270px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+  .live-class-page {
+    grid-template-columns: 1fr;
+  }
+
+  .live-right-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: start;
+  }
+
+  .live-chat-card {
+    min-height: 300px;
+  }
+
+  .video-container {
+    height: 330px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .live-main-card {
+    padding: 13px;
+  }
+
+  .live-class-header h1 {
+    font-size: 14px;
+  }
+
+  .live-meta {
+    font-size: 7px;
+  }
+
+  .video-container {
+    height: 250px;
+  }
+
+  .live-bottom {
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  .live-controls {
+    gap: 5px;
+  }
+
+  .control,
+  .end-call {
+    width: 29px;
+    height: 29px;
+  }
+
+  .live-right-sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+  .video-container {
+    height: 210px;
+  }
+
+  .live-bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .live-controls {
+    justify-content: flex-end;
+  }
+
+  .students-section {
+    width: 100%;
+  }
+
+  .course-content-card,
+  .live-chat-card {
+    padding: 13px;
+  }
+}

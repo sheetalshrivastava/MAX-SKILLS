@@ -1,0 +1,2840 @@
+// // // // .page-heading {
+// // // //   margin-bottom: 20px;
+
+// // // //   h1 {
+// // // //     margin: 0;
+// // // //     font-size: 24px;
+// // // //     color: #263238;
+// // // //   }
+
+// // // //   p {
+// // // //     margin: 5px 0 0;
+// // // //     color: #999;
+// // // //     font-size: 13px;
+// // // //   }
+// // // // }
+
+// // // // .welcome-banner {
+// // // //   background: #4cc4a8;
+// // // //   min-height: 130px;
+// // // //   padding: 25px 30px;
+// // // //   border-radius: 10px;
+// // // //   color: #fff;
+
+// // // //   display: flex;
+// // // //   align-items: center;
+// // // //   justify-content: space-between;
+
+// // // //   margin-bottom: 18px;
+
+// // // //   h2 {
+// // // //     margin: 0 0 8px;
+// // // //     font-size: 20px;
+// // // //   }
+
+// // // //   p {
+// // // //     margin: 0;
+// // // //     font-size: 12px;
+// // // //   }
+// // // // }
+
+// // // // .banner-icons {
+// // // //   display: flex;
+// // // //   gap: 20px;
+// // // //   font-size: 55px;
+// // // //   opacity: 0.25;
+// // // // }
+
+// // // // .stats-grid {
+// // // //   display: grid;
+// // // //   grid-template-columns: repeat(3, 1fr);
+// // // //   gap: 16px;
+// // // //   margin-bottom: 20px;
+// // // // }
+
+// // // // .stat-card {
+// // // //   min-height: 115px;
+// // // //   padding: 18px;
+// // // //   border-radius: 10px;
+// // // //   color: white;
+
+// // // //   display: flex;
+// // // //   flex-direction: column;
+// // // //   justify-content: space-between;
+
+// // // //   svg {
+// // // //     font-size: 27px;
+// // // //   }
+
+// // // //   strong {
+// // // //     font-size: 22px;
+// // // //   }
+
+// // // //   span {
+// // // //     font-size: 11px;
+// // // //   }
+// // // // }
+
+// // // // .stat-card.green {
+// // // //   background: #4cc4a8;
+// // // // }
+
+// // // // .stat-card.yellow {
+// // // //   background: #ffc64d;
+// // // // }
+
+// // // // .stat-card.dark {
+// // // //   background: #344054;
+// // // // }
+
+// // // // .dashboard-grid {
+// // // //   display: grid;
+// // // //   grid-template-columns: 1fr 320px;
+// // // //   gap: 18px;
+// // // // }
+
+// // // // .main-column,
+// // // // .right-column {
+// // // //   display: flex;
+// // // //   flex-direction: column;
+// // // //   gap: 18px;
+// // // // }
+
+// // // // .content-card {
+// // // //   background: #fff;
+// // // //   padding: 18px;
+// // // //   border-radius: 10px;
+// // // //   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+// // // // }
+
+// // // // .card-header {
+// // // //   display: flex;
+// // // //   align-items: center;
+// // // //   justify-content: space-between;
+// // // //   margin-bottom: 15px;
+
+// // // //   h3 {
+// // // //     margin: 0;
+// // // //     font-size: 14px;
+// // // //     color: #344054;
+// // // //   }
+
+// // // //   svg {
+// // // //     color: #999;
+// // // //     font-size: 20px;
+// // // //   }
+// // // // }
+
+// // // // /* Learning Activity */
+
+// // // // .fake-chart {
+// // // //   height: 210px;
+
+// // // //   display: flex;
+// // // //   align-items: flex-end;
+
+// // // //   background: repeating-linear-gradient(
+// // // //     to bottom,
+// // // //     transparent 0,
+// // // //     transparent 40px,
+// // // //     #edf0f3 41px
+// // // //   );
+// // // // }
+
+// // // // .chart-bars {
+// // // //   width: 100%;
+// // // //   height: 170px;
+
+// // // //   display: flex;
+// // // //   align-items: flex-end;
+// // // //   justify-content: space-around;
+// // // //   gap: 10px;
+// // // // }
+
+// // // // .chart-bars span {
+// // // //   width: 22px;
+// // // //   min-height: 20px;
+// // // //   border-radius: 4px 4px 0 0;
+// // // //   background: #4cc4a8;
+// // // // }
+
+// // // // .chart-bars span:nth-child(even) {
+// // // //   background: #ffc64d;
+// // // // }
+
+// // // // /* Score Activity */
+
+// // // // .score-chart {
+// // // //   height: 180px;
+
+// // // //   display: flex;
+// // // //   align-items: flex-end;
+// // // //   justify-content: space-around;
+// // // //   gap: 10px;
+
+// // // //   background: repeating-linear-gradient(
+// // // //     to bottom,
+// // // //     transparent 0,
+// // // //     transparent 35px,
+// // // //     #edf0f3 36px
+// // // //   );
+// // // // }
+
+// // // // .score-chart span {
+// // // //   width: 14px;
+// // // //   min-height: 20px;
+// // // //   background: #4cc4a8;
+// // // //   border-radius: 3px 3px 0 0;
+// // // // }
+
+// // // // .score-chart span:nth-child(even) {
+// // // //   background: #ffc64d;
+// // // // }
+
+// // // // /* Calendar */
+
+// // // // .calendar {
+// // // //   display: grid;
+// // // //   grid-template-columns: repeat(7, 1fr);
+// // // //   gap: 7px;
+// // // //   text-align: center;
+// // // // }
+
+// // // // .calendar-day {
+// // // //   color: #999;
+// // // //   font-size: 10px;
+// // // //   font-weight: 600;
+// // // // }
+
+// // // // .calendar-date {
+// // // //   height: 27px;
+
+// // // //   display: flex;
+// // // //   align-items: center;
+// // // //   justify-content: center;
+
+// // // //   font-size: 10px;
+// // // //   color: #555;
+// // // //   border-radius: 5px;
+
+// // // //   cursor: pointer;
+
+// // // //   &:hover {
+// // // //     background: #e8f8f4;
+// // // //     color: #4cc4a8;
+// // // //   }
+// // // // }
+
+// // // // .calendar-date.today {
+// // // //   background: #4cc4a8;
+// // // //   color: #fff;
+// // // // }
+
+// // // // /* Homework */
+
+// // // // .progress-item {
+// // // //   margin-bottom: 16px;
+// // // // }
+
+// // // // .progress-info {
+// // // //   display: flex;
+// // // //   justify-content: space-between;
+// // // //   margin-bottom: 6px;
+
+// // // //   span {
+// // // //     font-size: 11px;
+// // // //     color: #666;
+// // // //   }
+
+// // // //   strong {
+// // // //     font-size: 10px;
+// // // //     color: #999;
+// // // //   }
+// // // // }
+
+// // // // .progress-bar {
+// // // //   width: 100%;
+// // // //   height: 6px;
+// // // //   background: #eee;
+// // // //   border-radius: 10px;
+// // // //   overflow: hidden;
+
+// // // //   b {
+// // // //     display: block;
+// // // //     height: 100%;
+// // // //     background: #ffc64d;
+// // // //     border-radius: 10px;
+// // // //   }
+// // // // }
+
+// // // // /* Schedule */
+
+// // // // .schedule-item {
+// // // //   padding: 12px 0;
+// // // //   border-bottom: 1px solid #eee;
+
+// // // //   &:last-child {
+// // // //     border-bottom: none;
+// // // //   }
+
+// // // //   strong {
+// // // //     display: block;
+// // // //     font-size: 12px;
+// // // //     color: #344054;
+// // // //     margin-bottom: 5px;
+// // // //   }
+
+// // // //   span {
+// // // //     font-size: 10px;
+// // // //     color: #999;
+// // // //   }
+// // // // }
+
+// // // // /* Tablet */
+
+// // // // @media (max-width: 1100px) {
+// // // //   .dashboard-grid {
+// // // //     grid-template-columns: 1fr;
+// // // //   }
+
+// // // //   .right-column {
+// // // //     display: grid;
+// // // //     grid-template-columns: repeat(2, 1fr);
+// // // //   }
+// // // // }
+
+// // // // /* Mobile */
+
+// // // // @media (max-width: 700px) {
+// // // //   .stats-grid {
+// // // //     grid-template-columns: 1fr;
+// // // //   }
+
+// // // //   .dashboard-grid {
+// // // //     grid-template-columns: 1fr;
+// // // //   }
+
+// // // //   .right-column {
+// // // //     display: flex;
+// // // //   }
+
+// // // //   .welcome-banner {
+// // // //     padding: 20px;
+
+// // // //     h2 {
+// // // //       font-size: 16px;
+// // // //     }
+// // // //   }
+
+// // // //   .banner-icons {
+// // // //     font-size: 35px;
+// // // //   }
+
+// // // //   .content-card {
+// // // //     padding: 14px;
+// // // //   }
+
+// // // //   .fake-chart {
+// // // //     height: 170px;
+// // // //   }
+
+// // // //   .score-chart {
+// // // //     height: 150px;
+// // // //   }
+// // // // }
+
+
+
+
+// // // .student-dashboard {
+// // //   width: 100%;
+// // //   max-width: 1400px;
+// // //   margin: 0 auto;
+// // //   padding: 4px;
+// // //   color: #344054;
+// // // }
+
+// // // /* ================= BANNER ================= */
+
+// // // .welcome-banner {
+// // //   min-height: 135px;
+// // //   border-radius: 9px;
+// // //   background: #4fc1a3;
+// // //   padding: 25px 28px;
+// // //   display: flex;
+// // //   align-items: center;
+// // //   justify-content: space-between;
+// // //   color: #fff;
+// // //   overflow: hidden;
+// // //   position: relative;
+// // // }
+
+// // // .banner-content {
+// // //   position: relative;
+// // //   z-index: 2;
+
+// // //   h2 {
+// // //     font-size: 19px;
+// // //     line-height: 1.45;
+// // //     margin: 0 0 8px;
+// // //     font-weight: 700;
+// // //   }
+
+// // //   p {
+// // //     margin: 0;
+// // //     max-width: 390px;
+// // //     font-size: 11px;
+// // //     line-height: 1.5;
+// // //     opacity: 0.9;
+// // //   }
+// // // }
+
+// // // .banner-icons {
+// // //   display: flex;
+// // //   align-items: center;
+// // //   gap: 55px;
+// // //   padding-right: 15px;
+
+// // //   svg {
+// // //     font-size: 65px;
+// // //     opacity: 0.22;
+// // //   }
+// // // }
+
+// // // /* ================= STATS ================= */
+
+// // // .stats-grid {
+// // //   display: grid;
+// // //   grid-template-columns: repeat(3, 1fr);
+// // //   gap: 12px;
+// // //   margin-top: 15px;
+// // // }
+
+// // // .stat-card {
+// // //   min-height: 125px;
+// // //   border-radius: 8px;
+// // //   padding: 14px;
+// // //   position: relative;
+// // //   overflow: hidden;
+// // //   color: #fff;
+
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   justify-content: center;
+
+// // //   .stat-icon {
+// // //     width: 32px;
+// // //     height: 32px;
+// // //     border-radius: 7px;
+// // //     background: #fff;
+// // //     color: #4fc1a3;
+
+// // //     display: flex;
+// // //     align-items: center;
+// // //     justify-content: center;
+
+// // //     margin-bottom: 8px;
+
+// // //     svg {
+// // //       font-size: 20px;
+// // //     }
+// // //   }
+
+// // //   strong {
+// // //     font-size: 18px;
+// // //     line-height: 1;
+// // //     margin-bottom: 5px;
+// // //   }
+
+// // //   span {
+// // //     font-size: 9px;
+// // //     line-height: 1.3;
+// // //     opacity: 0.95;
+// // //   }
+
+// // //   .stat-bg-icon {
+// // //     position: absolute;
+// // //     right: -10px;
+// // //     bottom: -12px;
+
+// // //     font-size: 80px;
+// // //     opacity: 0.16;
+// // //   }
+
+// // //   &.green {
+// // //     background: #4fc1a3;
+// // //   }
+
+// // //   &.yellow {
+// // //     background: #ffc64d;
+
+// // //     .stat-icon {
+// // //       color: #ffc64d;
+// // //     }
+// // //   }
+
+// // //   &.dark {
+// // //     background: #35455b;
+
+// // //     .stat-icon {
+// // //       color: #35455b;
+// // //     }
+// // //   }
+// // // }
+
+// // // /* ================= MAIN GRID ================= */
+
+// // // .dashboard-grid {
+// // //   display: grid;
+// // //   grid-template-columns: minmax(0, 1fr) 300px;
+// // //   gap: 15px;
+// // //   margin-top: 15px;
+// // //   align-items: start;
+// // // }
+
+// // // .main-column {
+// // //   min-width: 0;
+// // //   display: grid;
+// // //   grid-template-columns: minmax(0, 1fr) 125px;
+// // //   gap: 15px;
+// // // }
+
+// // // .right-column {
+// // //   min-width: 0;
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   gap: 15px;
+// // // }
+
+// // // /* ================= CARD ================= */
+
+// // // .content-card {
+// // //   background: #fff;
+// // //   border-radius: 9px;
+// // //   padding: 15px;
+// // //   box-shadow: 0 2px 12px rgba(31, 45, 61, 0.035);
+// // // }
+
+// // // .card-header {
+// // //   display: flex;
+// // //   align-items: flex-start;
+// // //   justify-content: space-between;
+// // //   gap: 10px;
+// // //   margin-bottom: 12px;
+
+// // //   h3 {
+// // //     margin: 0;
+// // //     font-size: 12px;
+// // //     color: #344054;
+// // //     font-weight: 700;
+// // //   }
+
+// // //   > svg {
+// // //     color: #98a2b3;
+// // //     font-size: 18px;
+// // //   }
+// // // }
+
+// // // /* ================= LEGEND ================= */
+
+// // // .legend {
+// // //   display: flex;
+// // //   gap: 13px;
+// // //   margin-top: 7px;
+
+// // //   span {
+// // //     font-size: 8px;
+// // //   }
+
+// // //   .orange-dot {
+// // //     color: #f5bd45;
+// // //   }
+
+// // //   .green-dot {
+// // //     color: #4fc1a3;
+// // //   }
+// // // }
+
+// // // /* ================= LEARNING CHART ================= */
+
+// // // .learning-card {
+// // //   min-height: 245px;
+// // // }
+
+// // // .learning-chart {
+// // //   display: flex;
+// // //   height: 180px;
+// // // }
+
+// // // .chart-y {
+// // //   width: 28px;
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   justify-content: space-between;
+// // //   padding: 5px 0 25px;
+
+// // //   span {
+// // //     color: #98a2b3;
+// // //     font-size: 8px;
+// // //   }
+// // // }
+
+// // // .chart-area {
+// // //   flex: 1;
+// // //   min-width: 0;
+// // //   position: relative;
+// // // }
+
+// // // .chart-grid-lines {
+// // //   position: absolute;
+// // //   inset: 5px 0 28px;
+// // //   display: flex;
+// // //   justify-content: space-between;
+
+// // //   span {
+// // //     width: 1px;
+// // //     background: #eaecf0;
+// // //   }
+// // // }
+
+// // // .line-chart {
+// // //   position: absolute;
+// // //   inset: 0 0 25px;
+// // //   width: 100%;
+// // //   height: calc(100% - 25px);
+// // //   overflow: visible;
+// // // }
+
+// // // .chart-point {
+// // //   transition: r 0.2s ease;
+
+// // //   &:hover {
+// // //     r: 9;
+// // //   }
+// // // }
+
+// // // .chart-tooltip {
+// // //   position: absolute;
+// // //   left: 27%;
+// // //   top: 38px;
+
+// // //   background: #344054;
+// // //   color: #fff;
+// // //   border-radius: 5px;
+// // //   padding: 6px 10px;
+
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   align-items: center;
+
+// // //   font-size: 9px;
+
+// // //   &::after {
+// // //     content: "";
+// // //     position: absolute;
+// // //     bottom: -5px;
+// // //     left: 50%;
+// // //     border-width: 5px 5px 0;
+// // //     border-style: solid;
+// // //     border-color: #344054 transparent transparent;
+// // //   }
+
+// // //   span {
+// // //     font-size: 7px;
+// // //     opacity: 0.8;
+// // //   }
+// // // }
+
+// // // .chart-days {
+// // //   position: absolute;
+// // //   left: 0;
+// // //   right: 0;
+// // //   bottom: 0;
+
+// // //   display: flex;
+// // //   justify-content: space-between;
+
+// // //   span {
+// // //     font-size: 8px;
+// // //     color: #98a2b3;
+// // //   }
+// // // }
+
+// // // /* ================= MY PROGRESS ================= */
+
+// // // .progress-card {
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   align-items: center;
+// // //   text-align: center;
+// // //   min-height: 245px;
+// // // }
+
+// // // .progress-circle {
+// // //   width: 100px;
+// // //   height: 100px;
+// // //   position: relative;
+
+// // //   svg {
+// // //     width: 100%;
+// // //     height: 100%;
+// // //     transform: rotate(-90deg);
+// // //   }
+
+// // //   circle {
+// // //     fill: none;
+// // //     stroke-width: 7;
+// // //   }
+
+// // //   .progress-bg {
+// // //     stroke: #edf1f3;
+// // //   }
+
+// // //   .progress-value {
+// // //     stroke: #344054;
+// // //     stroke-linecap: round;
+// // //     stroke-dasharray: 226;
+// // //     stroke-dashoffset: 56;
+// // //   }
+
+// // //   strong {
+// // //     position: absolute;
+// // //     inset: 0;
+// // //     display: flex;
+// // //     align-items: center;
+// // //     justify-content: center;
+
+// // //     font-size: 16px;
+// // //     color: #344054;
+// // //   }
+// // // }
+
+// // // .progress-card h3 {
+// // //   font-size: 10px;
+// // //   margin: 4px 0;
+// // // }
+
+// // // .progress-card p {
+// // //   color: #98a2b3;
+// // //   font-size: 7px;
+// // //   line-height: 1.5;
+// // //   margin: 0 0 10px;
+// // // }
+
+// // // .progress-card button {
+// // //   border: 0;
+// // //   background: #4fc1a3;
+// // //   color: #fff;
+// // //   border-radius: 5px;
+// // //   padding: 6px 10px;
+
+// // //   display: flex;
+// // //   align-items: center;
+// // //   gap: 3px;
+
+// // //   font-size: 8px;
+// // //   cursor: pointer;
+
+// // //   &:hover {
+// // //     background: #3eaf92;
+// // //   }
+// // // }
+
+// // // /* ================= SCORE ================= */
+
+// // // .score-card {
+// // //   grid-column: 1 / -1;
+// // //   min-height: 235px;
+// // // }
+
+// // // .year-select {
+// // //   border: 1px solid #eaecf0;
+// // //   border-radius: 5px;
+// // //   padding: 5px 8px;
+
+// // //   display: flex;
+// // //   align-items: center;
+// // //   gap: 5px;
+
+// // //   font-size: 8px;
+// // //   color: #667085;
+// // // }
+
+// // // .score-chart {
+// // //   display: flex;
+// // //   height: 160px;
+// // // }
+
+// // // .score-y {
+// // //   width: 30px;
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   justify-content: space-between;
+// // //   padding-bottom: 20px;
+
+// // //   span {
+// // //     color: #98a2b3;
+// // //     font-size: 8px;
+// // //   }
+// // // }
+
+// // // .score-bars {
+// // //   flex: 1;
+// // //   min-width: 0;
+
+// // //   display: flex;
+// // //   justify-content: space-between;
+// // //   align-items: stretch;
+
+// // //   border-bottom: 1px solid #eaecf0;
+// // //   background-image: linear-gradient(
+// // //     to bottom,
+// // //     transparent 24%,
+// // //     #f0f2f5 25%,
+// // //     transparent 26%,
+// // //     transparent 49%,
+// // //     #f0f2f5 50%,
+// // //     transparent 51%,
+// // //     transparent 74%,
+// // //     #f0f2f5 75%,
+// // //     transparent 76%
+// // //   );
+// // // }
+
+// // // .score-group {
+// // //   flex: 1;
+// // //   min-width: 0;
+
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   align-items: center;
+// // //   justify-content: flex-end;
+// // // }
+
+// // // .bars {
+// // //   height: calc(100% - 20px);
+// // //   width: 70%;
+// // //   display: flex;
+// // //   justify-content: center;
+// // //   align-items: flex-end;
+// // //   gap: 3px;
+// // // }
+
+// // // .score-bar {
+// // //   width: 6px;
+// // //   max-height: 100%;
+// // //   min-height: 4px;
+// // //   border-radius: 2px 2px 0 0;
+// // //   position: relative;
+
+// // //   transition: height 0.3s ease, transform 0.2s ease;
+
+// // //   &:hover {
+// // //     transform: scaleX(1.5);
+// // //   }
+
+// // //   span {
+// // //     display: none;
+// // //     position: absolute;
+// // //     top: -22px;
+// // //     left: 50%;
+// // //     transform: translateX(-50%);
+
+// // //     background: #344054;
+// // //     color: #fff;
+// // //     padding: 3px 5px;
+// // //     border-radius: 3px;
+// // //     font-size: 7px;
+// // //   }
+
+// // //   &:hover span {
+// // //     display: block;
+// // //   }
+// // // }
+
+// // // .green-bar {
+// // //   background: #4fc1a3;
+// // // }
+
+// // // .yellow-bar {
+// // //   background: #f5bd45;
+// // // }
+
+// // // .score-group small {
+// // //   font-size: 8px;
+// // //   color: #98a2b3;
+// // //   margin-top: 5px;
+// // // }
+
+// // // /* ================= CALENDAR ================= */
+
+// // // .calendar-card {
+// // //   padding: 14px;
+// // // }
+
+// // // .calendar-header {
+// // //   display: flex;
+// // //   align-items: center;
+// // //   justify-content: space-between;
+
+// // //   margin-bottom: 12px;
+
+// // //   h3 {
+// // //     margin: 0;
+// // //     font-size: 10px;
+// // //     color: #344054;
+// // //   }
+
+// // //   button {
+// // //     border: 0;
+// // //     background: transparent;
+// // //     color: #98a2b3;
+// // //     cursor: pointer;
+
+// // //     display: flex;
+// // //     align-items: center;
+// // //     justify-content: center;
+
+// // //     &:hover {
+// // //       color: #4fc1a3;
+// // //     }
+
+// // //     svg {
+// // //       font-size: 17px;
+// // //     }
+// // //   }
+// // // }
+
+// // // .calendar {
+// // //   display: grid;
+// // //   grid-template-columns: repeat(7, 1fr);
+// // //   gap: 4px;
+// // //   text-align: center;
+// // // }
+
+// // // .calendar-day {
+// // //   color: #98a2b3;
+// // //   font-size: 7px;
+// // //   padding-bottom: 3px;
+// // // }
+
+// // // .calendar-date {
+// // //   border: 0;
+// // //   background: transparent;
+// // //   color: #475467;
+// // //   width: 24px;
+// // //   height: 24px;
+// // //   margin: auto;
+
+// // //   display: flex;
+// // //   align-items: center;
+// // //   justify-content: center;
+
+// // //   border-radius: 5px;
+
+// // //   font-size: 8px;
+// // //   cursor: pointer;
+
+// // //   transition: 0.2s;
+
+// // //   &:hover {
+// // //     background: #e8f8f3;
+// // //     color: #4fc1a3;
+// // //   }
+
+// // //   &.selected {
+// // //     background: #4fc1a3;
+// // //     color: #fff;
+// // //   }
+// // // }
+
+// // // .calendar-empty {
+// // //   width: 24px;
+// // //   height: 24px;
+// // //   margin: auto;
+// // // }
+
+// // // .selected-date {
+// // //   margin-top: 10px;
+// // //   text-align: center;
+// // //   font-size: 8px;
+// // //   color: #98a2b3;
+// // // }
+
+// // // /* ================= HOMEWORK ================= */
+
+// // // .homework {
+// // //   .card-header {
+// // //     margin-bottom: 15px;
+// // //   }
+// // // }
+
+// // // .progress-item {
+// // //   margin-bottom: 13px;
+
+// // //   &:last-child {
+// // //     margin-bottom: 0;
+// // //   }
+// // // }
+
+// // // .progress-info {
+// // //   display: flex;
+// // //   justify-content: space-between;
+// // //   margin-bottom: 6px;
+
+// // //   span,
+// // //   strong {
+// // //     font-size: 8px;
+// // //   }
+
+// // //   span {
+// // //     color: #475467;
+// // //   }
+
+// // //   strong {
+// // //     color: #98a2b3;
+// // //   }
+// // // }
+
+// // // .progress-bar {
+// // //   width: 100%;
+// // //   height: 5px;
+// // //   background: #edf0f2;
+// // //   border-radius: 10px;
+// // //   overflow: hidden;
+
+// // //   b {
+// // //     display: block;
+// // //     height: 100%;
+// // //     border-radius: inherit;
+// // //     background: #ffc64d;
+
+// // //     transition: width 0.4s ease;
+// // //   }
+
+// // //   .purple {
+// // //     background: #4fc1a3;
+// // //   }
+
+// // //   .orange {
+// // //     background: #f5bd45;
+// // //   }
+// // // }
+
+// // // /* ================= SCHEDULE ================= */
+
+// // // .schedule {
+// // //   padding-bottom: 10px;
+// // // }
+
+// // // .schedule .card-header {
+// // //   align-items: center;
+
+// // //   small {
+// // //     display: block;
+// // //     margin-top: 4px;
+// // //     color: #98a2b3;
+// // //     font-size: 7px;
+// // //   }
+// // // }
+
+// // // .add-schedule {
+// // //   width: 25px;
+// // //   height: 25px;
+// // //   border: 0;
+// // //   border-radius: 7px;
+
+// // //   display: flex;
+// // //   align-items: center;
+// // //   justify-content: center;
+
+// // //   background: #e8f8f3;
+// // //   color: #4fc1a3;
+
+// // //   cursor: pointer;
+
+// // //   &:hover {
+// // //     background: #4fc1a3;
+// // //     color: #fff;
+// // //   }
+// // // }
+
+// // // .schedule-item {
+// // //   border-left: 5px solid #4fc1a3;
+// // //   border-radius: 5px;
+// // //   padding: 12px 10px;
+// // //   margin-bottom: 10px;
+
+// // //   background: #fff;
+// // //   box-shadow: 0 4px 15px rgba(31, 45, 61, 0.04);
+
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   gap: 6px;
+
+// // //   transition: 0.2s;
+
+// // //   &:hover {
+// // //     transform: translateY(-2px);
+// // //     box-shadow: 0 7px 18px rgba(31, 45, 61, 0.08);
+// // //   }
+
+// // //   &.blue {
+// // //     border-color: #344f6b;
+// // //   }
+
+// // //   &.green {
+// // //     border-color: #4fc1a3;
+// // //   }
+
+// // //   &.yellow {
+// // //     border-color: #f5bd45;
+// // //   }
+// // // }
+
+// // // .schedule-title {
+// // //   display: flex;
+// // //   align-items: center;
+// // //   justify-content: space-between;
+
+// // //   strong {
+// // //     font-size: 9px;
+// // //     color: #344054;
+// // //   }
+
+// // //   svg {
+// // //     color: #98a2b3;
+// // //     font-size: 15px;
+// // //   }
+// // // }
+
+// // // .schedule-item > span {
+// // //   display: flex;
+// // //   align-items: center;
+// // //   gap: 5px;
+
+// // //   color: #98a2b3;
+// // //   font-size: 7px;
+
+// // //   svg {
+// // //     font-size: 11px;
+// // //   }
+// // // }
+
+// // // .schedule-item small {
+// // //   color: #98a2b3;
+// // //   font-size: 7px;
+// // // }
+
+// // // .more-schedule {
+// // //   width: 100%;
+// // //   height: 28px;
+
+// // //   border: 1px solid #d0d5dd;
+// // //   border-radius: 6px;
+// // //   background: #fff;
+
+// // //   color: #667085;
+// // //   font-size: 8px;
+
+// // //   display: flex;
+// // //   align-items: center;
+// // //   justify-content: center;
+// // //   gap: 5px;
+
+// // //   cursor: pointer;
+
+// // //   &:hover {
+// // //     border-color: #4fc1a3;
+// // //     color: #4fc1a3;
+// // //   }
+// // // }
+
+// // // /* ================= RESPONSIVE ================= */
+
+// // // @media (max-width: 1100px) {
+// // //   .dashboard-grid {
+// // //     grid-template-columns: 1fr;
+// // //   }
+
+// // //   .right-column {
+// // //     display: grid;
+// // //     grid-template-columns: repeat(2, 1fr);
+// // //   }
+
+// // //   .schedule {
+// // //     grid-column: 1 / -1;
+// // //   }
+// // // }
+
+// // // @media (max-width: 800px) {
+// // //   .main-column {
+// // //     grid-template-columns: 1fr;
+// // //   }
+
+// // //   .progress-card {
+// // //     min-height: 220px;
+// // //   }
+
+// // //   .score-card {
+// // //     grid-column: auto;
+// // //   }
+
+// // //   .stats-grid {
+// // //     grid-template-columns: 1fr;
+// // //   }
+
+// // //   .right-column {
+// // //     grid-template-columns: 1fr;
+// // //   }
+
+// // //   .schedule {
+// // //     grid-column: auto;
+// // //   }
+// // // }
+
+// // // @media (max-width: 600px) {
+// // //   .student-dashboard {
+// // //     padding: 0;
+// // //   }
+
+// // //   .welcome-banner {
+// // //     padding: 20px;
+// // //     min-height: 120px;
+// // //   }
+
+// // //   .banner-content h2 {
+// // //     font-size: 15px;
+// // //   }
+
+// // //   .banner-content p {
+// // //     font-size: 9px;
+// // //     max-width: 250px;
+// // //   }
+
+// // //   .banner-icons {
+// // //     gap: 10px;
+
+// // //     svg {
+// // //       font-size: 40px;
+// // //     }
+// // //   }
+
+// // //   .stats-grid {
+// // //     gap: 10px;
+// // //   }
+
+// // //   .stat-card {
+// // //     min-height: 110px;
+// // //   }
+
+// // //   .dashboard-grid {
+// // //     gap: 10px;
+// // //   }
+
+// // //   .content-card {
+// // //     padding: 12px;
+// // //   }
+
+// // //   .learning-card,
+// // //   .progress-card,
+// // //   .score-card {
+// // //     min-height: auto;
+// // //   }
+
+// // //   .score-bars {
+// // //     gap: 2px;
+// // //   }
+
+// // //   .score-bar {
+// // //     width: 4px;
+// // //   }
+
+// // //   .calendar-date {
+// // //     width: 28px;
+// // //     height: 28px;
+// // //   }
+// // // }
+
+
+
+
+
+
+// // .student-dashboard {
+// //   width: 100%;
+// //   max-width: 1400px;
+// //   margin: 0 auto;
+// //   color: #303b4d;
+// // }
+
+// // /* PAGE TITLE */
+
+// // .dashboard-title {
+// //   margin-bottom: 14px;
+
+// //   h1 {
+// //     font-size: 22px;
+// //     font-weight: 600;
+// //     color: #303b4d;
+// //   }
+// // }
+
+// // /* TOP */
+
+// // .top-dashboard {
+// //   display: grid;
+// //   grid-template-columns: minmax(0, 1fr) 195px;
+// //   gap: 16px;
+// //   margin-bottom: 16px;
+// // }
+
+// // /* BANNER */
+
+// // .welcome-banner {
+// //   min-height: 130px;
+// //   padding: 22px 25px;
+// //   border-radius: 9px;
+// //   background: #4cbfa4;
+// //   color: white;
+// //   display: flex;
+// //   align-items: center;
+// //   justify-content: space-between;
+// //   overflow: hidden;
+// // }
+
+// // .banner-content {
+// //   h2 {
+// //     margin: 0 0 8px;
+// //     font-size: 18px;
+// //     line-height: 1.35;
+// //     font-weight: 700;
+// //   }
+
+// //   p {
+// //     margin: 0 0 10px;
+// //     font-size: 10px;
+// //     line-height: 1.5;
+// //     opacity: 0.9;
+// //   }
+
+// //   button {
+// //     display: flex;
+// //     align-items: center;
+// //     gap: 4px;
+// //     padding: 6px 10px;
+// //     border-radius: 5px;
+// //     background: white;
+// //     color: #4cbfa4;
+// //     font-size: 10px;
+// //   }
+// // }
+
+// // .banner-icons {
+// //   display: flex;
+// //   align-items: center;
+// //   gap: 25px;
+
+// //   svg {
+// //     font-size: 55px;
+// //     color: rgba(255, 255, 255, 0.2);
+// //   }
+// // }
+
+// // /* CALENDAR */
+
+// // .calendar-card {
+// //   background: white;
+// //   border-radius: 9px;
+// //   padding: 12px;
+// //   box-shadow: 0 4px 15px rgba(40, 50, 70, 0.04);
+// // }
+
+// // .calendar-header {
+// //   display: flex;
+// //   justify-content: space-between;
+// //   align-items: center;
+// //   margin-bottom: 10px;
+
+// //   strong {
+// //     font-size: 10px;
+// //   }
+
+// //   button {
+// //     background: transparent;
+// //     color: #9ca3af;
+// //     font-size: 18px;
+// //     padding: 0 4px;
+// //   }
+// // }
+
+// // .calendar-week,
+// // .calendar-dates {
+// //   display: grid;
+// //   grid-template-columns: repeat(7, 1fr);
+// //   text-align: center;
+// //   gap: 5px;
+// // }
+
+// // .calendar-week {
+// //   margin-bottom: 6px;
+
+// //   span {
+// //     font-size: 7px;
+// //     color: #a5acb8;
+// //   }
+// // }
+
+// // .calendar-dates span {
+// //   height: 16px;
+// //   display: flex;
+// //   justify-content: center;
+// //   align-items: center;
+// //   font-size: 7px;
+// //   color: #687386;
+// //   border-radius: 4px;
+// // }
+
+// // .calendar-dates .selected-date {
+// //   background: #4cbfa4;
+// //   color: white;
+// // }
+
+// // /* STATS */
+
+// // .stats-grid {
+// //   display: grid;
+// //   grid-template-columns: repeat(3, 1fr);
+// //   gap: 12px;
+// //   margin-bottom: 16px;
+// // }
+
+// // .stat-card {
+// //   min-height: 108px;
+// //   padding: 14px;
+// //   position: relative;
+// //   overflow: hidden;
+// //   border-radius: 8px;
+// //   color: white;
+
+// //   display: flex;
+// //   flex-direction: column;
+// //   justify-content: center;
+
+// //   .stat-icon {
+// //     width: 30px;
+// //     height: 30px;
+// //     background: white;
+// //     color: #4cbfa4;
+// //     border-radius: 6px;
+
+// //     display: flex;
+// //     align-items: center;
+// //     justify-content: center;
+
+// //     margin-bottom: 8px;
+
+// //     svg {
+// //       font-size: 18px;
+// //     }
+// //   }
+
+// //   strong {
+// //     font-size: 17px;
+// //     line-height: 1;
+// //     margin-bottom: 4px;
+// //   }
+
+// //   > span {
+// //     font-size: 9px;
+// //   }
+
+// //   .stat-bg-icon {
+// //     position: absolute;
+// //     right: -5px;
+// //     bottom: -10px;
+// //     font-size: 80px;
+// //     opacity: 0.15;
+// //   }
+// // }
+
+// // .stat-card.green {
+// //   background: #4cbfa4;
+// // }
+
+// // .stat-card.yellow {
+// //   background: #ffc34f;
+
+// //   .stat-icon {
+// //     color: #ffc34f;
+// //   }
+// // }
+
+// // .stat-card.dark {
+// //   background: #354357;
+
+// //   .stat-icon {
+// //     color: #354357;
+// //   }
+// // }
+
+// // /* MAIN COLUMNS */
+
+// // .dashboard-columns {
+// //   display: grid;
+// //   grid-template-columns: minmax(0, 1fr) 260px;
+// //   gap: 16px;
+// // }
+
+// // .left-dashboard {
+// //   min-width: 0;
+// // }
+
+// // .right-dashboard {
+// //   min-width: 0;
+// //   display: flex;
+// //   flex-direction: column;
+// //   gap: 12px;
+// // }
+
+// // /* COMMON CARD */
+
+// // .dashboard-card {
+// //   background: white;
+// //   border-radius: 9px;
+// //   padding: 15px;
+// //   box-shadow: 0 4px 15px rgba(40, 50, 70, 0.04);
+// //   margin-bottom: 12px;
+// // }
+
+// // .card-heading {
+// //   display: flex;
+// //   align-items: flex-start;
+// //   justify-content: space-between;
+// //   margin-bottom: 12px;
+
+// //   h3 {
+// //     margin: 0;
+// //     font-size: 12px;
+// //     color: #354357;
+// //     font-weight: 700;
+// //   }
+
+// //   svg {
+// //     color: #a2a9b5;
+// //     font-size: 18px;
+// //   }
+// // }
+
+// // .legend {
+// //   display: flex;
+// //   gap: 10px;
+// //   margin-top: 5px;
+
+// //   span {
+// //     font-size: 7px;
+// //   }
+
+// //   .orange-dot {
+// //     color: #f4b83f;
+// //   }
+
+// //   .green-dot {
+// //     color: #4cbfa4;
+// //   }
+// // }
+
+// // /* LEARNING ACTIVITY */
+
+// // .learning-card {
+// //   min-height: 245px;
+// // }
+
+// // .learning-chart {
+// //   display: flex;
+// //   height: 160px;
+// // }
+
+// // .chart-y {
+// //   width: 28px;
+// //   display: flex;
+// //   flex-direction: column;
+// //   justify-content: space-between;
+
+// //   span {
+// //     font-size: 7px;
+// //     color: #9ba3af;
+// //   }
+// // }
+
+// // .chart-area {
+// //   position: relative;
+// //   flex: 1;
+// //   overflow: hidden;
+// // }
+
+// // .chart-grid {
+// //   position: absolute;
+// //   inset: 0;
+
+// //   display: flex;
+// //   justify-content: space-between;
+
+// //   i {
+// //     border-left: 1px solid #edf0f2;
+// //     height: 100%;
+// //   }
+// // }
+
+// // .line-chart {
+// //   position: absolute;
+// //   width: 100%;
+// //   height: 100%;
+// //   left: 0;
+// //   top: 0;
+// // }
+
+// // .chart-points {
+// //   position: absolute;
+// //   left: 0;
+// //   right: 0;
+// //   top: 0;
+// //   bottom: 0;
+
+// //   display: flex;
+// //   justify-content: space-between;
+// //   align-items: center;
+
+// //   span {
+// //     width: 6px;
+// //     height: 6px;
+// //     background: white;
+// //     border: 2px solid #4cbfa4;
+// //     border-radius: 50%;
+// //     position: relative;
+// //     z-index: 2;
+// //   }
+// // }
+
+// // .chart-days {
+// //   margin-left: 28px;
+// //   display: flex;
+// //   justify-content: space-between;
+
+// //   span {
+// //     font-size: 8px;
+// //     color: #9ba3af;
+// //   }
+// // }
+
+// // /* SCORE ACTIVITY */
+
+// // .score-card {
+// //   min-height: 220px;
+// // }
+
+// // .score-chart {
+// //   height: 145px;
+// //   display: flex;
+// //   align-items: flex-end;
+// //   justify-content: space-between;
+// //   gap: 8px;
+// //   border-bottom: 1px solid #edf0f2;
+// // }
+
+// // .bar-group {
+// //   flex: 1;
+// //   height: 100%;
+// //   display: flex;
+// //   flex-direction: column;
+// //   justify-content: flex-end;
+// //   align-items: center;
+// // }
+
+// // .bars {
+// //   height: calc(100% - 18px);
+// //   width: 100%;
+// //   display: flex;
+// //   align-items: flex-end;
+// //   justify-content: center;
+// //   gap: 2px;
+// // }
+
+// // .orange-bar,
+// // .green-bar {
+// //   width: 5px;
+// //   min-height: 8px;
+// //   border-radius: 2px 2px 0 0;
+// // }
+
+// // .orange-bar {
+// //   background: #ffc34f;
+// // }
+
+// // .green-bar {
+// //   background: #4cbfa4;
+// // }
+
+// // .bar-group small {
+// //   margin-top: 5px;
+// //   font-size: 7px;
+// //   color: #9ba3af;
+// // }
+
+// // /* MY PROGRESS */
+
+// // .progress-card {
+// //   text-align: center;
+// //   margin-bottom: 0;
+// // }
+
+// // .progress-card .card-heading {
+// //   text-align: left;
+// // }
+
+// // .progress-circle {
+// //   width: 90px;
+// //   height: 90px;
+// //   margin: 10px auto;
+
+// //   border-radius: 50%;
+// //   background: conic-gradient(
+// //     #354357 0 75%,
+// //     #edf1f2 75% 100%
+// //   );
+
+// //   display: flex;
+// //   align-items: center;
+// //   justify-content: center;
+// // }
+
+// // .progress-circle div {
+// //   width: 70px;
+// //   height: 70px;
+// //   border-radius: 50%;
+// //   background: white;
+
+// //   display: flex;
+// //   align-items: center;
+// //   justify-content: center;
+// // }
+
+// // .progress-circle strong {
+// //   font-size: 16px;
+// //   color: #354357;
+// // }
+
+// // .progress-card p {
+// //   margin: 8px 0;
+// //   color: #a1a8b3;
+// //   font-size: 8px;
+// //   line-height: 1.5;
+// // }
+
+// // .progress-card button {
+// //   background: #4cbfa4;
+// //   color: white;
+// //   padding: 6px 12px;
+// //   border-radius: 4px;
+// //   font-size: 8px;
+// // }
+
+// // /* HOMEWORK */
+
+// // .homework-card {
+// //   margin-bottom: 0;
+// // }
+
+// // .homework-item {
+// //   margin-bottom: 12px;
+// // }
+
+// // .homework-title {
+// //   display: flex;
+// //   justify-content: space-between;
+// //   align-items: center;
+
+// //   span {
+// //     font-size: 8px;
+// //     color: #465264;
+// //   }
+
+// //   button {
+// //     background: transparent;
+// //     color: #9ca3af;
+// //     font-size: 7px;
+// //   }
+// // }
+
+// // .homework-progress {
+// //   width: 100%;
+// //   height: 5px;
+// //   margin-top: 5px;
+// //   background: #edf0f2;
+// //   border-radius: 10px;
+// //   overflow: hidden;
+
+// //   span {
+// //     display: block;
+// //     height: 100%;
+// //     background: #ffc34f;
+// //     border-radius: 10px;
+// //     transition: width 0.3s ease;
+// //   }
+// // }
+
+// // /* SCHEDULE */
+
+// // .schedule-card {
+// //   margin-bottom: 0;
+// // }
+
+// // .schedule-card .card-heading {
+// //   small {
+// //     display: block;
+// //     margin-top: 4px;
+// //     color: #a1a8b3;
+// //     font-size: 7px;
+// //   }
+// // }
+
+// // .add-schedule {
+// //   width: 22px;
+// //   height: 22px;
+// //   border-radius: 50%;
+// //   background: #4cbfa4;
+// //   color: white;
+// //   font-size: 16px;
+// // }
+
+// // .schedule-item {
+// //   display: flex;
+// //   gap: 8px;
+// //   padding: 10px 8px;
+// //   margin-bottom: 8px;
+// //   border-left: 4px solid #4cbfa4;
+// //   background: #fafbfc;
+// //   border-radius: 4px;
+
+// //   > svg {
+// //     color: #9da6b3;
+// //     font-size: 15px;
+// //   }
+
+// //   strong {
+// //     display: block;
+// //     font-size: 9px;
+// //     color: #354357;
+// //   }
+
+// //   span,
+// //   small {
+// //     display: block;
+// //     font-size: 7px;
+// //     color: #9ba3af;
+// //     margin-top: 3px;
+// //   }
+// // }
+
+// // .schedule-item.blue {
+// //   border-color: #354357;
+// // }
+
+// // .schedule-item.green {
+// //   border-color: #4cbfa4;
+// // }
+
+// // .schedule-item.yellow {
+// //   border-color: #ffc34f;
+// // }
+
+// // .more-schedule {
+// //   width: 100%;
+// //   height: 28px;
+// //   border: 1px solid #d8dde3;
+// //   background: white;
+// //   color: #657080;
+// //   border-radius: 5px;
+// //   font-size: 8px;
+// // }
+
+// // /* TABLET */
+
+// // @media (max-width: 1000px) {
+// //   .top-dashboard {
+// //     grid-template-columns: 1fr;
+// //   }
+
+// //   .calendar-card {
+// //     max-width: 100%;
+// //   }
+
+// //   .dashboard-columns {
+// //     grid-template-columns: 1fr;
+// //   }
+
+// //   .right-dashboard {
+// //     display: grid;
+// //     grid-template-columns: repeat(2, 1fr);
+// //   }
+
+// //   .schedule-card {
+// //     grid-column: span 2;
+// //   }
+// // }
+
+// // /* MOBILE */
+
+// // @media (max-width: 700px) {
+// //   .student-dashboard {
+// //     width: 100%;
+// //   }
+
+// //   .dashboard-title h1 {
+// //     font-size: 18px;
+// //   }
+
+// //   .welcome-banner {
+// //     min-height: 115px;
+// //     padding: 16px;
+// //   }
+
+// //   .banner-content h2 {
+// //     font-size: 15px;
+// //   }
+
+// //   .banner-content p {
+// //     font-size: 8px;
+// //   }
+
+// //   .banner-icons {
+// //     gap: 8px;
+
+// //     svg {
+// //       font-size: 35px;
+// //     }
+// //   }
+
+// //   .stats-grid {
+// //     grid-template-columns: 1fr;
+// //   }
+
+// //   .stat-card {
+// //     min-height: 95px;
+// //   }
+
+// //   .dashboard-columns {
+// //     grid-template-columns: 1fr;
+// //   }
+
+// //   .right-dashboard {
+// //     display: flex;
+// //   }
+
+// //   .schedule-card {
+// //     grid-column: auto;
+// //   }
+
+// //   .learning-card {
+// //     min-height: 220px;
+// //   }
+
+// //   .score-card {
+// //     min-height: 200px;
+// //   }
+
+// //   .learning-chart {
+// //     height: 140px;
+// //   }
+
+// //   .score-chart {
+// //     height: 130px;
+// //   }
+
+// //   .right-dashboard {
+// //     width: 100%;
+// //   }
+// // }
+
+
+
+.student-dashboard {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: #334155;
+}
+
+/* =========================
+   PAGE HEADING
+========================= */
+
+.page-heading {
+  margin-bottom: 18px;
+
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #334155;
+  }
+
+  p {
+    margin: 5px 0 0;
+    color: #94a3b8;
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   MAIN GRID
+========================= */
+
+.top-dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 18px;
+}
+
+.dashboard-main {
+  min-width: 0;
+}
+
+.dashboard-sidebar {
+  min-width: 0;
+}
+
+/* =========================
+   BANNER
+========================= */
+
+.welcome-banner {
+  min-height: 130px;
+  padding: 22px 24px;
+  border-radius: 9px;
+  background: #4bbd9f;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+
+  h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    max-width: 380px;
+    font-size: 10px;
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+}
+
+.banner-icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  svg {
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+  }
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.stat-card {
+  min-height: 118px;
+  border-radius: 8px;
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.stat-card.green {
+  background: #4bbd9f;
+}
+
+.stat-card.yellow {
+  background: #ffc44d;
+}
+
+.stat-card.dark {
+  background: #34465b;
+}
+
+.stat-icon {
+  width: 31px;
+  height: 31px;
+  border-radius: 7px;
+  background: white;
+  color: #4bbd9f;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    font-size: 19px;
+  }
+}
+
+.yellow .stat-icon {
+  color: #ffc44d;
+}
+
+.dark .stat-icon {
+  color: #34465b;
+}
+
+.stat-number {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.stat-label {
+  margin-top: 3px;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.stat-bg-icon {
+  position: absolute;
+  right: -5px;
+  bottom: -12px;
+  width: 75px;
+  height: 75px;
+  opacity: 0.14;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.dashboard-card {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #edf0f4;
+  padding: 16px;
+  box-shadow: 0 3px 12px rgba(30, 41, 59, 0.025);
+}
+
+.card-title-row {
+  min-height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h3 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+  }
+
+  > svg {
+    color: #a5a1b8;
+    font-size: 18px;
+  }
+}
+
+/* =========================
+   ACTIVITY GRID
+========================= */
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+/* =========================
+   CHART ACTIONS
+========================= */
+
+.chart-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  button {
+    border: 0;
+    background: transparent;
+    padding: 3px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    color: #aaa8b7;
+    font-size: 8px;
+  }
+
+  button.active {
+    color: #596275;
+    font-weight: 600;
+  }
+
+  > svg {
+    color: #aaa8b7;
+    font-size: 16px;
+  }
+}
+
+.orange-dot,
+.green-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.orange-dot {
+  background: #ffc44d;
+}
+
+.green-dot {
+  background: #4bbd9f;
+}
+
+.year-button {
+  border: 1px solid #edf0f4 !important;
+  border-radius: 5px;
+  padding: 4px 7px !important;
+}
+
+/* =========================
+   LEARNING CHART
+========================= */
+
+.line-chart {
+  display: flex;
+  height: 190px;
+  margin-top: 15px;
+}
+
+.y-axis {
+  width: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  span {
+    font-size: 8px;
+    color: #a8a9b2;
+  }
+}
+
+.chart-area {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.chart-grid-lines {
+  position: absolute;
+  inset: 0 0 20px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+
+  span {
+    width: 1px;
+    background: #edf0f2;
+  }
+}
+
+.chart-area svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(100% - 20px);
+}
+
+.x-axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    font-size: 8px;
+    color: #a8a9b2;
+  }
+}
+
+/* =========================
+   MY PROGRESS
+========================= */
+
+.progress-card {
+  text-align: center;
+}
+
+.progress-circle {
+  width: 105px;
+  height: 105px;
+  margin: 10px auto 5px;
+  position: relative;
+}
+
+.progress-circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circle-bg,
+.circle-value {
+  fill: none;
+  stroke-width: 8;
+}
+
+.circle-bg {
+  stroke: #edf0f2;
+}
+
+.circle-value {
+  stroke: #34465b;
+  stroke-dasharray: 226;
+  stroke-dashoffset: 56;
+  stroke-linecap: round;
+}
+
+.progress-circle strong {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  color: #34465b;
+}
+
+.progress-card h4 {
+  margin: 5px 0;
+  font-size: 11px;
+}
+
+.progress-card p {
+  margin: 0 auto 10px;
+  max-width: 135px;
+  color: #aaa8b7;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.details-btn {
+  border: 0;
+  border-radius: 5px;
+  padding: 7px 12px;
+
+  background: #4bbd9f;
+  color: #fff;
+
+  cursor: pointer;
+  font-size: 8px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* =========================
+   SCORE ACTIVITY
+========================= */
+
+.score-card {
+  margin-top: 16px;
+}
+
+.bar-chart {
+  height: 170px;
+  margin-top: 18px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 0 5px;
+  border-bottom: 1px solid #edf0f2;
+}
+
+.bar-group {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+}
+
+.bars {
+  height: 145px;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.bar {
+  width: 5px;
+  min-height: 4px;
+  border-radius: 2px 2px 0 0;
+}
+
+.bar.orange {
+  background: #ffc44d;
+}
+
+.bar.green {
+  background: #4bbd9f;
+}
+
+.bar-group small {
+  font-size: 8px;
+  color: #aaa8b7;
+}
+
+/* =========================
+   CALENDAR
+========================= */
+
+.calendar-card {
+  padding: 14px;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: 24px 1fr 24px;
+  align-items: center;
+  gap: 5px;
+}
+
+.calendar-header h3 {
+  margin: 0;
+  text-align: center;
+  font-size: 10px;
+  color: #334155;
+}
+
+.calendar-header button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: #a7a9b3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    color: #4bbd9f;
+  }
+}
+
+.calendar-grid {
+  margin-top: 12px;
+
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-grid button,
+.calendar-weekday {
+  width: 100%;
+  height: 22px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 8px;
+}
+
+.calendar-weekday {
+  color: #aaa8b7;
+}
+
+.calendar-grid button {
+  border: 0;
+  background: transparent;
+  color: #596275;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background: #e8f7f2;
+    color: #4bbd9f;
+  }
+}
+
+.calendar-grid button.selected-date {
+  background: #4bbd9f;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* =========================
+   HOMEWORK
+========================= */
+
+.homework-card {
+  margin-top: 16px;
+}
+
+.icon-button {
+  border: 0;
+  background: transparent;
+  color: #a5a1b8;
+  cursor: pointer;
+
+  &:hover {
+    color: #4bbd9f;
+  }
+}
+
+.homework-item {
+  margin-top: 13px;
+}
+
+.homework-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+
+  span,
+  small {
+    font-size: 8px;
+  }
+
+  span {
+    color: #596275;
+  }
+
+  small {
+    color: #aaa8b7;
+  }
+}
+
+.homework-progress {
+  height: 5px;
+  border-radius: 5px;
+  background: #edf0f2;
+  overflow: hidden;
+}
+
+.homework-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+/* =========================
+   SCHEDULE
+========================= */
+
+.schedule-section {
+  margin-top: 18px;
+}
+
+.schedule-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  h3 {
+    margin: 0;
+    font-size: 13px;
+    color: #334155;
+  }
+
+  p {
+    margin: 3px 0 0;
+    font-size: 7px;
+    color: #aaa8b7;
+  }
+}
+
+.add-schedule {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  border-radius: 6px;
+
+  background: #e9f8f4;
+  color: #4bbd9f;
+
+  cursor: pointer;
+  font-size: 18px;
+
+  &:hover {
+    background: #4bbd9f;
+    color: white;
+  }
+}
+
+.schedule-card {
+  background: #fff;
+  border: 1px solid #edf0f4;
+  border-left: 5px solid;
+  border-radius: 7px;
+
+  padding: 12px;
+  margin-bottom: 10px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 41, 59, 0.08);
+  }
+}
+
+.schedule-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  strong {
+    font-size: 9px;
+    color: #334155;
+  }
+
+  p {
+    margin: 5px 0 0;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    font-size: 7px;
+    color: #aaa8b7;
+
+    svg {
+      font-size: 10px;
+    }
+  }
+}
+
+.play-icon {
+  color: #a8a9b2;
+  font-size: 16px;
+}
+
+.schedule-bottom {
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  span {
+    font-size: 7px;
+    color: #aaa8b7;
+  }
+}
+
+.more-schedule {
+  width: 100%;
+  height: 30px;
+
+  border: 1px solid #d7dce2;
+  border-radius: 6px;
+
+  background: #fff;
+  color: #596275;
+
+  cursor: pointer;
+
+  font-size: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  &:hover {
+    background: #4bbd9f;
+    border-color: #4bbd9f;
+    color: white;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .top-dashboard-grid {
+    grid-template-columns: minmax(0, 1fr) 280px;
+  }
+
+  .activity-grid {
+    grid-template-columns: minmax(0, 1fr) 160px;
+  }
+}
+
+@media (max-width: 900px) {
+  .top-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+
+  .homework-card,
+  .schedule-section {
+    margin-top: 0;
+  }
+
+  .schedule-section {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .student-dashboard {
+    width: 100%;
+  }
+
+  .page-heading h1 {
+    font-size: 20px;
+  }
+
+  .welcome-banner {
+    min-height: 115px;
+    padding: 18px;
+  }
+
+  .banner-content h2 {
+    font-size: 15px;
+  }
+
+  .banner-icons {
+    gap: 8px;
+
+    svg {
+      width: 42px;
+      height: 42px;
+    }
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    min-height: 100px;
+  }
+
+  .activity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-card {
+    min-height: 230px;
+  }
+
+  .dashboard-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-section {
+    grid-column: auto;
+  }
+
+  .chart-actions {
+    gap: 5px;
+
+    button {
+      font-size: 7px;
+    }
+
+    .year-button {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-banner {
+    padding: 15px;
+  }
+
+  .banner-icons {
+    display: none;
+  }
+
+  .dashboard-card {
+    padding: 12px;
+  }
+
+  .card-title-row {
+    align-items: flex-start;
+  }
+
+  .chart-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .line-chart {
+    height: 160px;
+  }
+
+  .bar-chart {
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 17px;
+  }
+
+  .bar-group {
+    min-width: 18px;
+  }
+}
+

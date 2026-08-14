@@ -1,0 +1,1174 @@
+
+
+
+
+
+.courses-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 18px;
+  background: #f8f9fb;
+  color: #344054;
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  button {
+    font-family: inherit;
+  }
+}
+
+/* =========================================
+   MAIN LAYOUT
+
+   LEFT:
+   3 CARDS
+   SELLING
+   REVIEWS
+
+   RIGHT:
+   POPULAR
+   TOP COURSES
+========================================= */
+
+.courses-layout {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 235px;
+  gap: 18px;
+
+  align-items: start;
+}
+
+.courses-left-column,
+.courses-right-column {
+  min-width: 0;
+}
+
+.courses-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================================
+   TOP STAT CARDS
+========================================= */
+
+.course-stat-grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+
+  margin-bottom: 16px;
+}
+
+.course-stat-card {
+  position: relative;
+
+  min-height: 74px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 12px 15px;
+
+  border: 0;
+  border-radius: 9px;
+
+  color: #fff;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 40, 60, 0.12);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.green-card {
+  background: #4cc4a8;
+}
+
+.yellow-card {
+  background: #ffbd45;
+}
+
+.red-card {
+  background: #ff6262;
+}
+
+.stat-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  svg {
+    font-size: 23px;
+  }
+}
+
+.stat-content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 9px;
+
+  strong {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  span {
+    margin-top: 2px;
+
+    font-size: 7px;
+    white-space: nowrap;
+  }
+}
+
+.stat-circle {
+  width: 23px;
+  height: 23px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  margin-left: auto;
+
+  border: 3px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+
+  span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: #fff;
+  }
+}
+
+/* =========================================
+   CARD DETAIL
+========================================= */
+
+.course-card-detail {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 14px;
+  padding: 10px 13px;
+
+  border-left: 3px solid #4cc4a8;
+  border-radius: 7px;
+
+  background: #fff;
+
+  box-shadow: 0 3px 14px rgba(30, 40, 60, 0.04);
+
+  strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #344054;
+    font-size: 10px;
+  }
+
+  p {
+    margin: 0;
+
+    color: #9997a8;
+    font-size: 8px;
+  }
+
+  button {
+    width: 24px;
+    height: 24px;
+
+    display: grid;
+    place-items: center;
+
+    border: 0;
+    border-radius: 5px;
+
+    background: #f3f4f6;
+    color: #777689;
+
+    cursor: pointer;
+
+    &:hover {
+      color: #4cc4a8;
+      background: #eaf9f5;
+    }
+  }
+}
+
+/* =========================================
+   SELLING CARD
+========================================= */
+
+.selling-card {
+  position: relative;
+
+  width: 100%;
+  min-height: 300px;
+
+  padding: 17px;
+
+  border-radius: 9px;
+
+  background: #fff;
+
+  box-shadow: 0 3px 14px rgba(30, 40, 60, 0.035);
+
+  overflow: hidden;
+}
+
+.selling-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 7px;
+
+  h2 {
+    margin: 0;
+
+    color: #344054;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+.selling-controls {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.week-toggle,
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 3px 0;
+
+    border: 0;
+    background: transparent;
+
+    color: #a1a6b2;
+    font-size: 7px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    &:hover {
+      color: #344054;
+    }
+
+    &.active {
+      color: #4cc4a8;
+      font-weight: 700;
+    }
+  }
+}
+
+.view-toggle {
+  padding-left: 10px;
+
+  border-left: 1px solid #edf0f2;
+
+  button {
+    padding-bottom: 5px;
+
+    &.active {
+      color: #4cc4a8;
+      border-bottom: 1px solid #4cc4a8;
+    }
+  }
+}
+
+.green-dot,
+.yellow-dot {
+  width: 7px;
+  height: 7px;
+
+  display: inline-block;
+
+  flex-shrink: 0;
+
+  border-radius: 2px;
+}
+
+.green-dot {
+  background: #4cc4a8;
+}
+
+.yellow-dot {
+  background: #ffbd45;
+}
+
+/* =========================================
+   ACTIVE INFO
+========================================= */
+
+.activity-info {
+  min-height: 18px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 4px;
+
+  color: #9997a8;
+  font-size: 7px;
+
+  svg {
+    color: #4cc4a8;
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   SELLING CHART
+========================================= */
+
+.selling-chart {
+  width: 100%;
+  height: 220px;
+
+  display: flex;
+}
+
+.selling-y-axis {
+  width: 27px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  padding: 4px 0 25px;
+
+  span {
+    color: #a1a6b2;
+    font-size: 7px;
+  }
+}
+
+.selling-chart-area {
+  position: relative;
+
+  flex: 1;
+  min-width: 0;
+
+  padding-bottom: 22px;
+}
+
+.selling-grid {
+  position: absolute;
+
+  inset: 0 0 22px;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  pointer-events: none;
+
+  span {
+    border-left: 1px dashed #e8eaed;
+  }
+
+  span:last-child {
+    border-right: 1px dashed #e8eaed;
+  }
+}
+
+.selling-bars {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: calc(100% - 22px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.selling-row {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+}
+
+.bar-pair {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.this-week-bar,
+.last-week-bar {
+  display: block;
+
+  min-width: 5px;
+  height: 6px;
+
+  border-radius: 0 3px 3px 0;
+
+  transition: width 0.3s ease;
+}
+
+.this-week-bar {
+  background: #4cc4a8;
+}
+
+.last-week-bar {
+  background: #ffbd45;
+}
+
+.selling-x-axis {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    color: #a1a6b2;
+    font-size: 6px;
+  }
+}
+
+/* =========================================
+   USER REVIEWS
+========================================= */
+
+.reviews-section {
+  margin-top: 16px;
+}
+
+.section-title {
+  margin-bottom: 10px;
+
+  h2 {
+    margin: 0;
+
+    color: #344054;
+    font-size: 12px;
+  }
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.review-card {
+  min-width: 0;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  background: #fff;
+
+  box-shadow: 0 3px 14px rgba(30, 40, 60, 0.025);
+
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  p {
+    margin: 10px 0 0;
+
+    color: #9997a8;
+    font-size: 7px;
+    line-height: 1.6;
+  }
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review-avatar {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: #d9dadd;
+}
+
+.review-user > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  strong {
+    color: #344054;
+    font-size: 8px;
+  }
+
+  span {
+    color: #ffbd45;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+}
+
+/* =========================================
+   RIGHT CARDS
+========================================= */
+
+.popular-card,
+.top-courses-card {
+  position: relative;
+
+  width: 100%;
+
+  padding: 17px;
+
+  border-radius: 9px;
+
+  background: #fff;
+
+  box-shadow: 0 3px 14px rgba(30, 40, 60, 0.035);
+}
+
+.popular-card {
+  min-height: 300px;
+}
+
+.top-courses-card {
+  min-height: 170px;
+}
+
+.right-card-header {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    margin: 0;
+
+    color: #344054;
+    font-size: 12px;
+  }
+
+  > button {
+    width: 23px;
+    height: 23px;
+
+    display: grid;
+    place-items: center;
+
+    border: 0;
+    border-radius: 5px;
+
+    background: transparent;
+    color: #9997a8;
+
+    cursor: pointer;
+
+    &:hover {
+      background: #f3f4f6;
+      color: #4cc4a8;
+    }
+
+    svg {
+      font-size: 16px;
+    }
+  }
+}
+
+/* =========================================
+   RIGHT MENU
+========================================= */
+
+.right-menu {
+  position: absolute;
+
+  z-index: 100;
+
+  top: 29px;
+  right: 0;
+
+  width: 130px;
+
+  padding: 5px;
+
+  border-radius: 6px;
+
+  background: #fff;
+
+  box-shadow: 0 8px 25px rgba(20, 30, 50, 0.15);
+
+  button {
+    width: 100%;
+
+    padding: 7px;
+
+    border: 0;
+    border-radius: 4px;
+
+    background: transparent;
+
+    text-align: left;
+
+    color: #667085;
+    font-size: 8px;
+
+    cursor: pointer;
+
+    &:hover {
+      background: #f1faf8;
+      color: #4cc4a8;
+    }
+  }
+}
+
+/* =========================================
+   DONUT
+========================================= */
+
+.donut-wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  margin: 12px 0 12px;
+}
+
+.donut-chart {
+  position: relative;
+
+  width: 125px;
+  height: 125px;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      #ffbd45 0deg 97.2deg,
+      #ff6262 97.2deg 277.2deg,
+      #4cc4a8 277.2deg 360deg
+    );
+}
+
+.donut-center {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 60px;
+  height: 60px;
+
+  transform: translate(-50%, -50%);
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  span {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #f3f4f6;
+  }
+}
+
+.donut-label {
+  position: absolute;
+
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.label-yellow {
+  top: 28px;
+  left: 27px;
+}
+
+.label-red {
+  bottom: 27px;
+  left: 45px;
+}
+
+.label-green {
+  top: 45px;
+  right: 18px;
+}
+
+/* =========================================
+   POPULAR LIST
+========================================= */
+
+.popular-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.popular-item {
+  display: grid;
+  grid-template-columns: 9px minmax(0, 1fr) auto;
+
+  align-items: center;
+
+  gap: 5px;
+
+  .popular-color {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 2px;
+
+    &.yellow {
+      background: #ffbd45;
+    }
+
+    &.red {
+      background: #ff6262;
+    }
+
+    &.green {
+      background: #4cc4a8;
+    }
+  }
+
+  .popular-name {
+    color: #9997a8;
+    font-size: 7px;
+  }
+
+  strong {
+    color: #344054;
+    font-size: 8px;
+  }
+}
+
+/* =========================================
+   TOP COURSES
+========================================= */
+
+.top-course-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-top: 15px;
+}
+
+.top-course-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  &:hover {
+    .top-course-info strong {
+      color: #4cc4a8;
+    }
+  }
+}
+
+.top-course-icon {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 7px;
+
+  &.green {
+    background: #eaf9f5;
+    color: #4cc4a8;
+  }
+
+  &.yellow {
+    background: #fff6e5;
+    color: #ffbd45;
+  }
+
+  svg {
+    font-size: 18px;
+  }
+}
+
+.top-course-info {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 8px;
+
+  small {
+    color: #9997a8;
+    font-size: 6px;
+  }
+
+  strong {
+    margin-top: 2px;
+
+    color: #344054;
+    font-size: 8px;
+
+    transition: color 0.2s ease;
+  }
+}
+
+.mini-bars {
+  height: 32px;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 3px;
+
+  margin-left: auto;
+
+  span {
+    width: 3px;
+
+    border-radius: 3px 3px 0 0;
+
+    background: #4cc4a8;
+
+    &:nth-child(1) {
+      height: 15px;
+    }
+
+    &:nth-child(2) {
+      height: 23px;
+    }
+
+    &:nth-child(3) {
+      height: 18px;
+    }
+
+    &:nth-child(4) {
+      height: 29px;
+    }
+
+    &:nth-child(5) {
+      height: 20px;
+    }
+  }
+}
+
+/* =========================================
+   MENU MESSAGE
+========================================= */
+
+.menu-message {
+  position: fixed;
+
+  z-index: 200;
+
+  right: 20px;
+  bottom: 20px;
+
+  min-width: 190px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 10px 12px;
+
+  border-radius: 7px;
+
+  background: #344054;
+  color: #fff;
+
+  box-shadow: 0 8px 25px rgba(20, 30, 50, 0.18);
+
+  font-size: 9px;
+
+  button {
+    width: 20px;
+    height: 20px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 4px;
+
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+
+
+@media (max-width: 1050px) {
+  .courses-layout {
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 14px;
+  }
+
+  .course-stat-grid {
+    gap: 10px;
+  }
+
+  .course-stat-card {
+    padding: 10px 12px;
+  }
+
+  .selling-card,
+  .popular-card,
+  .top-courses-card {
+    padding: 14px;
+  }
+}
+
+
+@media (max-width: 850px) {
+  .courses-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .courses-right-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+  }
+
+  .popular-card,
+  .top-courses-card {
+    min-height: 0;
+  }
+
+  .donut-chart {
+    width: 115px;
+    height: 115px;
+  }
+}
+
+
+
+@media (max-width: 700px) {
+  .courses-page {
+    padding: 12px;
+  }
+
+  .course-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-stat-card {
+    min-height: 72px;
+  }
+
+  .selling-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .selling-controls {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    width: 100%;
+  }
+}
+
+
+
+@media (max-width: 550px) {
+  .courses-page {
+    padding: 10px;
+  }
+
+  .courses-right-column {
+    grid-template-columns: 1fr;
+  }
+
+  .selling-card {
+    overflow-x: auto;
+  }
+
+  .selling-chart {
+    min-width: 500px;
+  }
+
+  .activity-info {
+    justify-content: flex-start;
+  }
+
+  .week-toggle,
+  .view-toggle {
+    gap: 5px;
+
+    button {
+      font-size: 7px;
+    }
+  }
+}
+
+
+@media (max-width: 420px) {
+  .courses-page {
+    padding: 8px;
+  }
+
+  .course-stat-card {
+    min-height: 68px;
+  }
+
+  .stat-icon {
+    width: 34px;
+    height: 34px;
+
+    svg {
+      font-size: 20px;
+    }
+  }
+
+  .stat-content {
+    strong {
+      font-size: 11px;
+    }
+
+    span {
+      font-size: 6px;
+    }
+  }
+
+  .selling-card {
+    padding: 13px;
+  }
+
+  .selling-header h2 {
+    font-size: 13px;
+  }
+
+  .selling-controls {
+    flex-wrap: wrap;
+  }
+
+  .reviews-section {
+    margin-top: 12px;
+  }
+
+  .review-card {
+    padding: 10px;
+  }
+
+  .popular-card,
+  .top-courses-card {
+    padding: 13px;
+  }
+
+  .menu-message {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+}

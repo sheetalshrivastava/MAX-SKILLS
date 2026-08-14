@@ -1,0 +1,36 @@
+// @mixin flex(
+// $justify:center,
+// $align:center,
+// $direction:row){
+
+// display:flex;
+// justify-content:$justify;
+// align-items:$align;
+// flex-direction:$direction;
+
+// }
+
+// @mixin card{
+
+// background:#fff;
+// border-radius:20px;
+// box-shadow:0 8px 30px rgba(0,0,0,.05);
+
+// }
+
+
+
+
+
+
+@mixin flex($justify:center, $align:center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
