@@ -1,6 +1,3 @@
-
-
-
 "use client";
 
 import { useMemo, useState } from "react";
@@ -169,7 +166,9 @@ export default function StudentCourses() {
 
   const filteredCourses = useMemo(() => {
     return allCourses.filter((course) =>
-      course.title.toLowerCase().includes(search.toLowerCase())
+      course.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
     );
   }, [search]);
 
@@ -192,15 +191,18 @@ export default function StudentCourses() {
     setPage(1);
   };
 
-  // COURSE OVERVIEW OPEN
+  // COURSE OVERVIEW
   const openCourse = (course) => {
-    router.push(`/student/course-overview?id=${course.id}`);
+    router.push(
+      `/student/course-overview?id=${course.id}`
+    );
   };
 
   return (
     <div className="courses-page">
 
       {/* TOP */}
+
       <div className="courses-topbar">
         <div>
           <h1>Courses</h1>
@@ -214,12 +216,15 @@ export default function StudentCourses() {
             type="text"
             placeholder="Search here..."
             value={search}
-            onChange={(e) => handleSearch(e.target.value)}
+            onChange={(e) =>
+              handleSearch(e.target.value)
+            }
           />
         </div>
       </div>
 
       {/* POPULAR */}
+
       <section className="popular-section">
 
         <div className="section-heading">
@@ -227,9 +232,14 @@ export default function StudentCourses() {
 
           <button
             type="button"
-            onClick={() => setShowAllPopular(!showAllPopular)}
+            onClick={() =>
+              setShowAllPopular(!showAllPopular)
+            }
           >
-            {showAllPopular ? "Show less" : "View all"}
+            {showAllPopular
+              ? "Show less"
+              : "View all"}
+
             <MdArrowForward />
           </button>
         </div>
@@ -242,9 +252,11 @@ export default function StudentCourses() {
               className="popular-card"
               key={course.id}
               onClick={() => {
-                const matchedCourse = allCourses.find(
-                  (item) => item.id === course.id
-                );
+                const matchedCourse =
+                  allCourses.find(
+                    (item) =>
+                      item.id === course.id
+                  );
 
                 if (matchedCourse) {
                   openCourse(matchedCourse);
@@ -257,7 +269,10 @@ export default function StudentCourses() {
 
               <div className="popular-content">
                 <strong>{course.title}</strong>
-                <span>{course.description}</span>
+
+                <span>
+                  {course.description}
+                </span>
               </div>
 
               <MdArrowForward className="popular-arrow" />
@@ -265,9 +280,11 @@ export default function StudentCourses() {
           ))}
 
         </div>
+
       </section>
 
       {/* ALL COURSES */}
+
       <section className="all-courses-section">
 
         <div className="section-heading">
@@ -279,19 +296,24 @@ export default function StudentCourses() {
         </div>
 
         {currentCourses.length > 0 ? (
+
           <div className="course-grid">
 
             {currentCourses.map((course) => (
+
               <article
                 className="course-card"
                 key={course.id}
               >
 
-                {/* VIDEO PREVIEW */}
+                {/* VIDEO */}
+
                 <button
                   type="button"
                   className="course-image"
-                  onClick={() => openCourse(course)}
+                  onClick={() =>
+                    openCourse(course)
+                  }
                 >
                   <div className="image-placeholder" />
 
@@ -301,23 +323,32 @@ export default function StudentCourses() {
                 </button>
 
                 {/* INFO */}
+
                 <div className="course-info">
 
                   <div className="course-title-row">
-                    <h3>{course.title}</h3>
+
+                    <h3>
+                      {course.title}
+                    </h3>
 
                     <strong className="course-price">
                       <span>$</span>
                       {course.price}
                     </strong>
+
                   </div>
 
                   <div className="course-author">
-                    <span>{course.author}</span>
+
+                    <span>
+                      {course.author}
+                    </span>
 
                     <span className="rating">
                       ★ {course.rating}
                     </span>
+
                   </div>
 
                   <div className="course-bottom">
@@ -329,7 +360,9 @@ export default function StudentCourses() {
 
                     <button
                       type="button"
-                      onClick={() => openCourse(course)}
+                      onClick={() =>
+                        openCourse(course)
+                      }
                     >
                       View Details
                     </button>
@@ -339,21 +372,28 @@ export default function StudentCourses() {
                 </div>
 
               </article>
+
             ))}
 
           </div>
+
         ) : (
+
           <div className="no-courses">
             <h3>No courses found</h3>
 
             <p>
-              Try searching with another course name.
+              Try searching with another
+              course name.
             </p>
           </div>
+
         )}
 
         {/* PAGINATION */}
+
         {filteredCourses.length > 0 && (
+
           <div className="pagination">
 
             <button
@@ -361,7 +401,9 @@ export default function StudentCourses() {
               className="pagination-arrow"
               disabled={page === 1}
               onClick={() =>
-                setPage((prev) => Math.max(1, prev - 1))
+                setPage((prev) =>
+                  Math.max(1, prev - 1)
+                )
               }
             >
               <MdChevronLeft />
@@ -377,7 +419,9 @@ export default function StudentCourses() {
                     type="button"
                     key={pageNumber}
                     className={
-                      page === pageNumber ? "active" : ""
+                      page === pageNumber
+                        ? "active"
+                        : ""
                     }
                     onClick={() =>
                       setPage(pageNumber)
@@ -392,10 +436,15 @@ export default function StudentCourses() {
             <button
               type="button"
               className="pagination-arrow"
-              disabled={page === totalPages}
+              disabled={
+                page === totalPages
+              }
               onClick={() =>
                 setPage((prev) =>
-                  Math.min(totalPages, prev + 1)
+                  Math.min(
+                    totalPages,
+                    prev + 1
+                  )
                 )
               }
             >
@@ -403,6 +452,7 @@ export default function StudentCourses() {
             </button>
 
           </div>
+
         )}
 
       </section>
