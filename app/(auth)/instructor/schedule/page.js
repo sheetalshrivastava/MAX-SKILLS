@@ -28,7 +28,15 @@ const monthNames = [
   "December",
 ];
 
-const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const weekDays = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
 const initialEvents = [
   {
@@ -141,24 +149,32 @@ export default function InstructorSchedulePage() {
     new Date(2022, 0, 1)
   );
 
-  const [selectedDate, setSelectedDate] = useState("2022-01-05");
+  const [selectedDate, setSelectedDate] =
+    useState("2022-01-05");
 
-  const [events, setEvents] = useState(initialEvents);
+  const [events, setEvents] =
+    useState(initialEvents);
 
   const [upcomingSchedule, setUpcomingSchedule] =
     useState(initialUpcoming);
 
-  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedEvent, setSelectedEvent] =
+    useState(null);
 
-  const [selectedTask, setSelectedTask] = useState(null);
+  const [selectedTask, setSelectedTask] =
+    useState(null);
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] =
+    useState(false);
 
-  const [newTitle, setNewTitle] = useState("");
+  const [newTitle, setNewTitle] =
+    useState("");
 
-  const [newTime, setNewTime] = useState("10.00 AM");
+  const [newTime, setNewTime] =
+    useState("10.00 AM");
 
-  const [newColor, setNewColor] = useState("green");
+  const [newColor, setNewColor] =
+    useState("green");
 
   /*
    * =========================================
@@ -169,13 +185,24 @@ export default function InstructorSchedulePage() {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const daysInMonth = new Date(
+    year,
+    month + 1,
+    0
+  ).getDate();
 
-  const firstDay = new Date(year, month, 1).getDay();
+  const firstDay = new Date(
+    year,
+    month,
+    1
+  ).getDay();
 
-  // JS Sunday = 0
-  // Calendar Monday se start ho raha hai
-  const mondayStartIndex = firstDay === 0 ? 6 : firstDay - 1;
+  // Sunday = 0
+  // Calendar Monday se start hoga
+  const mondayStartIndex =
+    firstDay === 0
+      ? 6
+      : firstDay - 1;
 
   const calendarDays = useMemo(() => {
     const previousMonthDays = new Date(
@@ -187,7 +214,11 @@ export default function InstructorSchedulePage() {
     const days = [];
 
     // Previous month dates
-    for (let i = mondayStartIndex - 1; i >= 0; i--) {
+    for (
+      let i = mondayStartIndex - 1;
+      i >= 0;
+      i--
+    ) {
       days.push({
         day: previousMonthDays - i,
         currentMonth: false,
@@ -196,11 +227,17 @@ export default function InstructorSchedulePage() {
     }
 
     // Current month
-    for (let day = 1; day <= daysInMonth; day++) {
-      const dateString = `${year}-${String(month + 1).padStart(
+    for (
+      let day = 1;
+      day <= daysInMonth;
+      day++
+    ) {
+      const dateString = `${year}-${String(
+        month + 1
+      ).padStart(2, "0")}-${String(day).padStart(
         2,
         "0"
-      )}-${String(day).padStart(2, "0")}`;
+      )}`;
 
       days.push({
         day,
@@ -223,7 +260,12 @@ export default function InstructorSchedulePage() {
     }
 
     return days;
-  }, [year, month, daysInMonth, mondayStartIndex]);
+  }, [
+    year,
+    month,
+    daysInMonth,
+    mondayStartIndex,
+  ]);
 
   /*
    * =========================================
@@ -232,11 +274,15 @@ export default function InstructorSchedulePage() {
    */
 
   const previousMonth = () => {
-    setCurrentDate(new Date(year, month - 1, 1));
+    setCurrentDate(
+      new Date(year, month - 1, 1)
+    );
   };
 
   const nextMonth = () => {
-    setCurrentDate(new Date(year, month + 1, 1));
+    setCurrentDate(
+      new Date(year, month + 1, 1)
+    );
   };
 
   /*
@@ -246,19 +292,18 @@ export default function InstructorSchedulePage() {
    */
 
   const handleDateClick = (dayData) => {
-    if (!dayData.currentMonth || !dayData.date) return;
+    if (
+      !dayData.currentMonth ||
+      !dayData.date
+    ) {
+      return;
+    }
 
     setSelectedDate(dayData.date);
 
-    const event = events.find(
-      (item) => item.date === dayData.date
-    );
-
-    if (event) {
-      setSelectedEvent(event);
-    } else {
-      setSelectedEvent(null);
-    }
+    // Date click karne par popup nahi khulega.
+    // Sirf selected date change hogi.
+    setSelectedEvent(null);
   };
 
   /*
@@ -271,6 +316,7 @@ export default function InstructorSchedulePage() {
     setNewTitle("");
     setNewTime("10.00 AM");
     setNewColor("green");
+
     setShowModal(true);
   };
 
@@ -281,22 +327,56 @@ export default function InstructorSchedulePage() {
   const addNewSchedule = (event) => {
     event.preventDefault();
 
-    if (!newTitle.trim()) return;
+    if (!newTitle.trim()) {
+      return;
+    }
 
     const newEvent = {
       id: Date.now(),
+
+      // Calendar me selected date par event add hoga
       date: selectedDate,
-      title: newTitle,
+
+      title: newTitle.trim(),
+
+      // Modal me jo time enter hoga wahi show hoga
       time: newTime,
+
       color: newColor,
+
       category: "New Schedule",
     };
 
-    setEvents((current) => [...current, newEvent]);
+    /*
+     * IMPORTANT:
+     *
+     * Pehle yahan:
+     *
+     * setSelectedEvent(newEvent);
+     *
+     * tha.
+     *
+     * Isi wajah se Save karte hi Delete popup
+     * open ho raha tha.
+     *
+     * Ab hum selectedEvent ko set nahi karenge.
+     */
 
-    setSelectedEvent(newEvent);
+    setEvents((currentEvents) => [
+      ...currentEvents,
+      newEvent,
+    ]);
 
+    // Popup band rahega
+    setSelectedEvent(null);
+
+    // New Schedule modal close
     setShowModal(false);
+
+    // Form reset
+    setNewTitle("");
+    setNewTime("10.00 AM");
+    setNewColor("green");
   };
 
   /*
@@ -306,7 +386,9 @@ export default function InstructorSchedulePage() {
    */
 
   const handleTaskClick = (task) => {
-    if (!task.title) return;
+    if (!task.title) {
+      return;
+    }
 
     setSelectedTask(task);
   };
@@ -319,7 +401,8 @@ export default function InstructorSchedulePage() {
 
   const handleUpcomingClick = (item) => {
     const event = events.find(
-      (eventItem) => eventItem.title === item.title
+      (eventItem) =>
+        eventItem.title === item.title
     );
 
     if (event) {
@@ -335,19 +418,49 @@ export default function InstructorSchedulePage() {
    */
 
   const deleteSelectedEvent = () => {
-    if (!selectedEvent) return;
+    if (!selectedEvent) {
+      return;
+    }
 
-    setEvents((current) =>
-      current.filter(
-        (item) => item.id !== selectedEvent.id
+    setEvents((currentEvents) =>
+      currentEvents.filter(
+        (item) =>
+          item.id !== selectedEvent.id
       )
     );
 
+    // Delete ke baad popup close
     setSelectedEvent(null);
+  };
+
+  /*
+   * =========================================
+   * FORMAT DATE
+   * =========================================
+   */
+
+  const formatSelectedDate = (dateString) => {
+    if (!dateString) {
+      return "";
+    }
+
+    const date = new Date(
+      `${dateString}T00:00:00`
+    );
+
+    return date.toLocaleDateString(
+      "en-US",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }
+    );
   };
 
   return (
     <main className="schedule-page">
+
       <div className="schedule-layout">
 
         {/* =====================================
@@ -416,56 +529,122 @@ export default function InstructorSchedulePage() {
 
           <div className="calendar-grid">
 
-            {calendarDays.map((dayData, index) => {
+            {calendarDays.map(
+              (dayData, index) => {
 
-              const dayEvent = events.find(
-                (event) =>
-                  event.date === dayData.date
-              );
+                /*
+                 * IMPORTANT:
+                 *
+                 * Pehle find() tha jisse ek date par
+                 * sirf ek event show hota tha.
+                 *
+                 * Ab filter() use kiya hai.
+                 *
+                 * Isse same date par multiple
+                 * schedules bhi show honge.
+                 */
 
-              const isSelected =
-                selectedDate === dayData.date;
+                const dayEvents =
+                  events.filter(
+                    (event) =>
+                      event.date ===
+                      dayData.date
+                  );
 
-              return (
-                <button
-                  type="button"
-                  key={`${dayData.date}-${index}`}
-                  className={`
-                    calendar-day
-                    ${!dayData.currentMonth ? "outside" : ""}
-                    ${isSelected ? "selected" : ""}
-                  `}
-                  onClick={() =>
-                    handleDateClick(dayData)
-                  }
-                >
+                const isSelected =
+                  selectedDate ===
+                  dayData.date;
 
-                  <span className="day-number">
-                    {dayData.day}
-                  </span>
+                return (
+                  <button
+                    type="button"
+                    key={`${dayData.date}-${index}`}
+                    className={`
+                      calendar-day
+                      ${
+                        !dayData.currentMonth
+                          ? "outside"
+                          : ""
+                      }
+                      ${
+                        isSelected
+                          ? "selected"
+                          : ""
+                      }
+                    `}
+                    onClick={() =>
+                      handleDateClick(dayData)
+                    }
+                  >
 
-                  {dayEvent && (
-                    <span
-                      className={`calendar-event ${dayEvent.color}`}
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        setSelectedEvent(dayEvent);
-                        setSelectedDate(dayEvent.date);
-                      }}
-                    >
-                      <strong>
-                        {dayEvent.title}
-                      </strong>
-
-                      <small>
-                        {dayEvent.time}
-                      </small>
+                    <span className="day-number">
+                      {dayData.day}
                     </span>
-                  )}
 
-                </button>
-              );
-            })}
+                    {/* ALL EVENTS FOR THIS DATE */}
+
+                    {dayEvents.length > 0 && (
+                      <div className="calendar-events">
+
+                        {dayEvents.map(
+                          (dayEvent) => (
+                            <span
+                              key={
+                                dayEvent.id
+                              }
+                              className={`
+                                calendar-event
+                                ${dayEvent.color}
+                              `}
+                              onClick={(
+                                event
+                              ) => {
+
+                                /*
+                                 * Parent date button
+                                 * ko click hone se roko
+                                 */
+
+                                event.stopPropagation();
+
+                                /*
+                                 * Sirf event click
+                                 * hone par popup open
+                                 */
+
+                                setSelectedEvent(
+                                  dayEvent
+                                );
+
+                                setSelectedDate(
+                                  dayEvent.date
+                                );
+                              }}
+                            >
+
+                              <strong>
+                                {
+                                  dayEvent.title
+                                }
+                              </strong>
+
+                              <small>
+                                {
+                                  dayEvent.time
+                                }
+                              </small>
+
+                            </span>
+                          )
+                        )}
+
+                      </div>
+                    )}
+
+                  </button>
+                );
+              }
+            )}
 
           </div>
 
@@ -486,17 +665,25 @@ export default function InstructorSchedulePage() {
             <h2>Upcoming Task</h2>
 
             <div className="task-hours">
+
               <span></span>
+
               <span>8 AM</span>
+
               <span>9 AM</span>
+
               <span>10 AM</span>
+
               <span>11 AM</span>
+
               <span>12 PM</span>
+
             </div>
 
             <div className="task-list">
 
               {tasks.map((task) => (
+
                 <button
                   type="button"
                   key={task.id}
@@ -511,17 +698,24 @@ export default function InstructorSchedulePage() {
                   </span>
 
                   <span className="task-line">
+
                     {task.title && (
                       <span
-                        className={`task-pill ${task.color}`}
+                        className={`
+                          task-pill
+                          ${task.color}
+                        `}
                       >
                         <b>•</b>
+
                         {task.title}
                       </span>
                     )}
+
                   </span>
 
                 </button>
+
               ))}
 
             </div>
@@ -534,49 +728,63 @@ export default function InstructorSchedulePage() {
 
           <section className="upcoming-schedule-card">
 
-            <h2>Upcoming Schedule</h2>
+            <h2>
+              Upcoming Schedule
+            </h2>
 
             <div className="upcoming-list">
 
-              {upcomingSchedule.map((item) => (
-                <button
-                  type="button"
-                  className={`upcoming-item ${item.color}`}
-                  key={item.id}
-                  onClick={() =>
-                    handleUpcomingClick(item)
-                  }
-                >
+              {upcomingSchedule.map(
+                (item) => (
 
-                  <span className="upcoming-date">
+                  <button
+                    type="button"
+                    className={`
+                      upcoming-item
+                      ${item.color}
+                    `}
+                    key={item.id}
+                    onClick={() =>
+                      handleUpcomingClick(item)
+                    }
+                  >
 
-                    <strong>
-                      {item.date}
-                    </strong>
+                    <span className="upcoming-date">
 
-                    <small>
-                      {item.month}
-                    </small>
+                      <strong>
+                        {item.date}
+                      </strong>
 
-                  </span>
+                      <small>
+                        {item.month}
+                      </small>
 
-                  <span className="upcoming-info">
+                    </span>
 
-                    <strong>
-                      {item.title}
-                    </strong>
+                    <span className="upcoming-info">
 
-                    <small>
-                      <MdAccessTime />
-                      {item.time}
-                    </small>
+                      <strong>
+                        {item.title}
+                      </strong>
 
-                  </span>
+                      <small>
 
-                  <MdKeyboardArrowRight className="upcoming-arrow" />
+                        <MdAccessTime />
 
-                </button>
-              ))}
+                        {item.time}
+
+                      </small>
+
+                    </span>
+
+                    <MdKeyboardArrowRight
+                      className="upcoming-arrow"
+                    />
+
+                  </button>
+
+                )
+              )}
 
             </div>
 
@@ -591,6 +799,7 @@ export default function InstructorSchedulePage() {
       ===================================== */}
 
       {selectedEvent && (
+
         <div className="schedule-popup-overlay">
 
           <div className="schedule-popup">
@@ -598,13 +807,18 @@ export default function InstructorSchedulePage() {
             <button
               type="button"
               className="popup-close"
-              onClick={() => setSelectedEvent(null)}
+              onClick={() =>
+                setSelectedEvent(null)
+              }
             >
               <MdClose />
             </button>
 
             <span
-              className={`popup-color ${selectedEvent.color}`}
+              className={`
+                popup-color
+                ${selectedEvent.color}
+              `}
             />
 
             <h2>
@@ -616,14 +830,25 @@ export default function InstructorSchedulePage() {
             </p>
 
             <div className="popup-time">
+
               <MdAccessTime />
+
               {selectedEvent.time}
+
             </div>
+
+            <p className="popup-date">
+              {formatSelectedDate(
+                selectedEvent.date
+              )}
+            </p>
 
             <button
               type="button"
               className="popup-delete"
-              onClick={deleteSelectedEvent}
+              onClick={
+                deleteSelectedEvent
+              }
             >
               Delete Schedule
             </button>
@@ -631,6 +856,7 @@ export default function InstructorSchedulePage() {
           </div>
 
         </div>
+
       )}
 
       {/* =====================================
@@ -638,6 +864,7 @@ export default function InstructorSchedulePage() {
       ===================================== */}
 
       {selectedTask && (
+
         <div className="schedule-popup-overlay">
 
           <div className="schedule-popup">
@@ -645,7 +872,9 @@ export default function InstructorSchedulePage() {
             <button
               type="button"
               className="popup-close"
-              onClick={() => setSelectedTask(null)}
+              onClick={() =>
+                setSelectedTask(null)
+              }
             >
               <MdClose />
             </button>
@@ -659,14 +888,19 @@ export default function InstructorSchedulePage() {
             </p>
 
             <div className="popup-time">
+
               <MdAccessTime />
+
               {selectedTask.time}
+
             </div>
 
             <button
               type="button"
               className="popup-ok"
-              onClick={() => setSelectedTask(null)}
+              onClick={() =>
+                setSelectedTask(null)
+              }
             >
               Done
             </button>
@@ -674,6 +908,7 @@ export default function InstructorSchedulePage() {
           </div>
 
         </div>
+
       )}
 
       {/* =====================================
@@ -681,6 +916,7 @@ export default function InstructorSchedulePage() {
       ===================================== */}
 
       {showModal && (
+
         <div className="schedule-popup-overlay">
 
           <form
@@ -690,7 +926,9 @@ export default function InstructorSchedulePage() {
 
             <div className="modal-header">
 
-              <h2>New Schedule</h2>
+              <h2>
+                New Schedule
+              </h2>
 
               <button
                 type="button"
@@ -701,42 +939,60 @@ export default function InstructorSchedulePage() {
 
             </div>
 
+            {/* TITLE */}
+
             <label>
+
               Schedule Title
 
               <input
                 type="text"
                 value={newTitle}
                 onChange={(event) =>
-                  setNewTitle(event.target.value)
+                  setNewTitle(
+                    event.target.value
+                  )
                 }
                 placeholder="Enter schedule title"
                 required
               />
+
             </label>
 
+            {/* TIME */}
+
             <label>
+
               Time
 
               <input
                 type="text"
                 value={newTime}
                 onChange={(event) =>
-                  setNewTime(event.target.value)
+                  setNewTime(
+                    event.target.value
+                  )
                 }
                 placeholder="10.00 AM"
               />
+
             </label>
 
+            {/* COLOR */}
+
             <label>
+
               Color
 
               <select
                 value={newColor}
                 onChange={(event) =>
-                  setNewColor(event.target.value)
+                  setNewColor(
+                    event.target.value
+                  )
                 }
               >
+
                 <option value="green">
                   Green
                 </option>
@@ -748,8 +1004,12 @@ export default function InstructorSchedulePage() {
                 <option value="red">
                   Red
                 </option>
+
               </select>
+
             </label>
+
+            {/* SAVE */}
 
             <button
               type="submit"
@@ -761,6 +1021,7 @@ export default function InstructorSchedulePage() {
           </form>
 
         </div>
+
       )}
 
     </main>
