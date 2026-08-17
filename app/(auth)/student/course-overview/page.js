@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import {
   useRouter,
   useSearchParams,
@@ -17,7 +17,6 @@ import {
   MdThumbUp,
   MdSend,
   MdLocalOffer,
-  MdArrowForward,
   MdForum,
   MdBarChart,
 } from "react-icons/md";
@@ -34,8 +33,7 @@ const courses = {
     reviews: "1k",
     students: "10k",
     content: "110+ Content",
-    video:
-      "https://www.youtube.com/embed/nu_pCVPKzTk",
+    video: "https://www.youtube.com/embed/nu_pCVPKzTk",
     description:
       "Learn full-stack web development from beginner level. Build modern websites and applications using HTML, CSS, JavaScript, React and Next.js.",
     learn: [
@@ -57,8 +55,7 @@ const courses = {
     reviews: "800",
     students: "8k",
     content: "110+ Content",
-    video:
-      "https://www.youtube.com/embed/c9Wg6Cb_YlU",
+    video: "https://www.youtube.com/embed/c9Wg6Cb_YlU",
     description:
       "Learn the basics of UI design and create beautiful interfaces for websites and applications.",
     learn: [
@@ -80,8 +77,7 @@ const courses = {
     reviews: "700",
     students: "7k",
     content: "110+ Content",
-    video:
-      "https://www.youtube.com/embed/6h2QYq6f6n8",
+    video: "https://www.youtube.com/embed/6h2QYq6f6n8",
     description:
       "Learn how to start freelancing, find clients and build your professional career online.",
     learn: [
@@ -103,8 +99,7 @@ const courses = {
     reviews: "900",
     students: "9k",
     content: "110+ Content",
-    video:
-      "https://www.youtube.com/embed/Ovj4hFxko7c",
+    video: "https://www.youtube.com/embed/Ovj4hFxko7c",
     description:
       "Understand users and learn how to conduct professional UX research.",
     learn: [
@@ -126,8 +121,7 @@ const courses = {
     reviews: "650",
     students: "6k",
     content: "110+ Content",
-    video:
-      "https://www.youtube.com/embed/1Rs2ND1ryYc",
+    video: "https://www.youtube.com/embed/1Rs2ND1ryYc",
     description:
       "Learn how to create beautiful and responsive websites from scratch.",
     learn: [
@@ -149,8 +143,7 @@ const courses = {
     reviews: "500",
     students: "5k",
     content: "110+ Content",
-    video:
-      "https://www.youtube.com/embed/3q3FV65ZrUs",
+    video: "https://www.youtube.com/embed/3q3FV65ZrUs",
     description:
       "Learn the fundamentals of 3D character design and modelling.",
     learn: [
@@ -172,8 +165,7 @@ const courses = {
     reviews: "1.2k",
     students: "12k",
     content: "120+ Content",
-    video:
-      "https://www.youtube.com/embed/SqcY0GlETPk",
+    video: "https://www.youtube.com/embed/SqcY0GlETPk",
     description:
       "Learn React and build modern interactive web applications.",
     learn: [
@@ -195,8 +187,7 @@ const courses = {
     reviews: "950",
     students: "10k",
     content: "100+ Content",
-    video:
-      "https://www.youtube.com/embed/PkZNo7MFNFg",
+    video: "https://www.youtube.com/embed/PkZNo7MFNFg",
     description:
       "Master JavaScript fundamentals and modern JavaScript development.",
     learn: [
@@ -218,8 +209,7 @@ const courses = {
     reviews: "600",
     students: "6k",
     content: "90+ Content",
-    video:
-      "https://www.youtube.com/embed/ZVnjOPwW4ZA",
+    video: "https://www.youtube.com/embed/ZVnjOPwW4ZA",
     description:
       "Learn Next.js and create fast, modern full-stack applications.",
     learn: [
@@ -233,95 +223,63 @@ const courses = {
   },
 };
 
-export default function CourseOverview() {
+function CourseOverviewContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const courseId =
-    searchParams.get("id") || "1";
+  const courseId = searchParams.get("id") || "1";
+  const course = courses[courseId] || courses["1"];
 
-  const course =
-    courses[courseId] || courses["1"];
+  const [activeTab, setActiveTab] = useState("about");
+  const [isLiked, setIsLiked] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [cartAdded, setCartAdded] = useState(false);
+  const [buyMessage, setBuyMessage] = useState("");
+  const [coupon, setCoupon] = useState("");
+  const [couponApplied, setCouponApplied] = useState(false);
+  const [couponMessage, setCouponMessage] = useState("");
+  const [comment, setComment] = useState("");
 
-  const [activeTab, setActiveTab] =
-    useState("about");
-
-  const [isLiked, setIsLiked] =
-    useState(false);
-
-  const [isFavorite, setIsFavorite] =
-    useState(false);
-
-  const [cartAdded, setCartAdded] =
-    useState(false);
-
-  const [buyMessage, setBuyMessage] =
-    useState("");
-
-  const [coupon, setCoupon] =
-    useState("");
-
-  const [couponApplied, setCouponApplied] =
-    useState(false);
-
-  const [couponMessage, setCouponMessage] =
-    useState("");
-
-  const [comment, setComment] =
-    useState("");
-
-  const [comments, setComments] =
-    useState([
-      {
-        name: "Karen Hope",
-        text:
-          "Very useful course. The explanation is easy to understand.",
-        rating: "5.0",
-        time: "1 Month Ago",
-      },
-      {
-        name: "Tony Soap",
-        text:
-          "Great course for beginners. I learned a lot from this.",
-        rating: "5.0",
-        time: "1 Month Ago",
-      },
-    ]);
+  const [comments, setComments] = useState([
+    {
+      name: "Karen Hope",
+      text:
+        "Very useful course. The explanation is easy to understand.",
+      rating: "5.0",
+      time: "1 Month Ago",
+    },
+    {
+      name: "Tony Soap",
+      text:
+        "Great course for beginners. I learned a lot from this.",
+      rating: "5.0",
+      time: "1 Month Ago",
+    },
+  ]);
 
   const handleAddToCart = () => {
     setCartAdded(true);
-    setBuyMessage(
-      "Course added to cart!"
-    );
+    setBuyMessage("Course added to cart!");
   };
 
-  // BUY NOW
   const handleBuyNow = () => {
-    const purchasedCourses =
-      JSON.parse(
-        localStorage.getItem(
-          "maxskills_purchased_courses"
-        ) || "[]"
-      );
+    const purchasedCourses = JSON.parse(
+      localStorage.getItem(
+        "maxskills_purchased_courses"
+      ) || "[]"
+    );
 
-    if (
-      !purchasedCourses.includes(
-        String(courseId)
-      )
-    ) {
-      purchasedCourses.push(
-        String(courseId)
-      );
+    if (!purchasedCourses.includes(String(courseId))) {
+      purchasedCourses.push(String(courseId));
     }
 
     localStorage.setItem(
       "maxskills_purchased_courses",
-      JSON.stringify(
-        purchasedCourses
-      )
+      JSON.stringify(purchasedCourses)
     );
 
     setCartAdded(true);
+
     setBuyMessage(
       "Course purchased successfully! Opening course content..."
     );
@@ -334,18 +292,15 @@ export default function CourseOverview() {
   };
 
   const handleCoupon = () => {
-    const value =
-      coupon.trim().toUpperCase();
+    const value = coupon.trim().toUpperCase();
 
     if (value === "MAX50") {
       setCouponApplied(true);
-
       setCouponMessage(
         "Coupon applied successfully! 50% discount added."
       );
     } else {
       setCouponApplied(false);
-
       setCouponMessage(
         "Invalid coupon. Try MAX50."
       );
@@ -378,7 +333,6 @@ export default function CourseOverview() {
 
   return (
     <div className="course-details-page">
-
       {/* BACK */}
 
       <button
@@ -391,13 +345,10 @@ export default function CourseOverview() {
       </button>
 
       <div className="course-details-grid">
-
         {/* LEFT */}
 
         <section className="course-overview">
-
           <div className="course-main-info">
-
             <span className="overview-label">
               COURSE OVERVIEW
             </span>
@@ -409,10 +360,7 @@ export default function CourseOverview() {
             </p>
 
             <div className="course-rating">
-
-              <strong>
-                {course.rating}
-              </strong>
+              <strong>{course.rating}</strong>
 
               <span className="stars">
                 <MdStar />
@@ -437,27 +385,20 @@ export default function CourseOverview() {
               <span>
                 {course.students} Students
               </span>
-
             </div>
 
             <div className="instructor-info">
-
               <div className="instructor-avatar">
                 {course.author.charAt(0)}
               </div>
 
-              <span>
-                {course.author}
-              </span>
-
+              <span>{course.author}</span>
             </div>
-
           </div>
 
           {/* TABS */}
 
           <div className="course-tabs">
-
             <button
               type="button"
               className={
@@ -465,9 +406,7 @@ export default function CourseOverview() {
                   ? "active"
                   : ""
               }
-              onClick={() =>
-                setActiveTab("about")
-              }
+              onClick={() => setActiveTab("about")}
             >
               About
             </button>
@@ -515,117 +454,78 @@ export default function CourseOverview() {
               <MdBarChart />
               Progress
             </button>
-
           </div>
 
           {/* ABOUT */}
 
           {activeTab === "about" && (
-
             <div className="about-content">
+              <h3>About This Course</h3>
 
-              <h3>
-                About This Course
-              </h3>
+              <p>{course.description}</p>
 
-              <p>
-                {course.description}
-              </p>
-
-              <h3>
-                What You Will Learn
-              </h3>
+              <h3>What You Will Learn</h3>
 
               <div className="learn-list">
+                {course.learn.map((item) => (
+                  <div key={item}>
+                    <MdCheckCircle />
 
-                {course.learn.map(
-                  (item) => (
-                    <div key={item}>
-                      <MdCheckCircle />
-
-                      <span>
-                        {item}
-                      </span>
-                    </div>
-                  )
-                )}
-
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-
-              {/* NO START COURSE BUTTON */}
 
               <div className="purchase-note">
                 Buy this course to unlock
                 the complete course content.
               </div>
-
             </div>
           )}
 
           {/* REVIEWS */}
 
           {activeTab === "reviews" && (
-
             <div className="reviews-content">
+              <h3>Course Reviews</h3>
 
-              <h3>
-                Course Reviews
-              </h3>
-
-              {comments.map(
-                (item, index) => (
-
-                  <div
-                    className="review-item"
-                    key={index}
-                  >
-
-                    <div className="review-avatar">
-                      {item.name.charAt(0)}
-                    </div>
-
-                    <div className="review-body">
-
-                      <div className="review-top">
-
-                        <strong>
-                          {item.name}
-                        </strong>
-
-                        <span className="review-rating">
-                          {item.rating}
-
-                          <span className="stars">
-                            <MdStar />
-                            <MdStar />
-                            <MdStar />
-                            <MdStar />
-                            <MdStar />
-                          </span>
-                        </span>
-
-                        <small>
-                          {item.time}
-                        </small>
-
-                      </div>
-
-                      <p>
-                        {item.text}
-                      </p>
-
-                    </div>
-
+              {comments.map((item, index) => (
+                <div
+                  className="review-item"
+                  key={index}
+                >
+                  <div className="review-avatar">
+                    {item.name.charAt(0)}
                   </div>
 
-                )
-              )}
+                  <div className="review-body">
+                    <div className="review-top">
+                      <strong>{item.name}</strong>
+
+                      <span className="review-rating">
+                        {item.rating}
+
+                        <span className="stars">
+                          <MdStar />
+                          <MdStar />
+                          <MdStar />
+                          <MdStar />
+                          <MdStar />
+                        </span>
+                      </span>
+
+                      <small>{item.time}</small>
+                    </div>
+
+                    <p>{item.text}</p>
+                  </div>
+                </div>
+              ))}
 
               <form
                 className="comment-form"
                 onSubmit={handleComment}
               >
-
                 <input
                   type="text"
                   placeholder="Write a review..."
@@ -638,21 +538,15 @@ export default function CourseOverview() {
                 <button type="submit">
                   <MdSend />
                 </button>
-
               </form>
-
             </div>
           )}
 
           {/* DISCUSSION */}
 
           {activeTab === "discussion" && (
-
             <div className="discussion-content">
-
-              <h3>
-                Course Discussion
-              </h3>
+              <h3>Course Discussion</h3>
 
               <p>
                 Ask questions, share ideas
@@ -661,7 +555,6 @@ export default function CourseOverview() {
               </p>
 
               <div className="discussion-box">
-
                 <div className="discussion-avatar">
                   S
                 </div>
@@ -676,14 +569,12 @@ export default function CourseOverview() {
                     about this course.
                   </p>
                 </div>
-
               </div>
 
               <form
                 className="comment-form"
                 onSubmit={handleComment}
               >
-
                 <input
                   type="text"
                   placeholder="Start a discussion..."
@@ -696,26 +587,18 @@ export default function CourseOverview() {
                 <button type="submit">
                   <MdSend />
                 </button>
-
               </form>
-
             </div>
           )}
 
           {/* PROGRESS */}
 
           {activeTab === "progress" && (
-
             <div className="progress-content">
-
-              <h3>
-                Your Course Progress
-              </h3>
+              <h3>Your Course Progress</h3>
 
               <div className="progress-header">
-                <strong>
-                  0% Complete
-                </strong>
+                <strong>0% Complete</strong>
 
                 <span>
                   0 / 110 lessons
@@ -731,11 +614,9 @@ export default function CourseOverview() {
               </div>
 
               <div className="progress-card">
-
                 <MdBarChart />
 
                 <div>
-
                   <strong>
                     Course locked
                   </strong>
@@ -744,24 +625,18 @@ export default function CourseOverview() {
                     Buy the course to
                     start learning.
                   </p>
-
                 </div>
-
               </div>
-
             </div>
           )}
-
         </section>
 
         {/* RIGHT */}
 
         <aside className="course-purchase-card">
-
           {/* VIDEO */}
 
           <div className="course-video">
-
             <iframe
               src={course.video}
               title={`${course.title} demo video`}
@@ -773,37 +648,27 @@ export default function CourseOverview() {
               <MdPlayArrow />
               <span>View Demo</span>
             </div>
-
           </div>
 
           {/* PRICE */}
 
           <div className="price-row">
+            <strong>${displayPrice}</strong>
 
-            <strong>
-              ${displayPrice}
-            </strong>
-
-            <del>
-              ${course.oldPrice}
-            </del>
+            <del>${course.oldPrice}</del>
 
             <span className="save-badge">
               Save 50%
             </span>
-
           </div>
 
           {/* LIKE */}
 
           <div className="purchase-actions">
-
             <button
               type="button"
               className={
-                isFavorite
-                  ? "liked"
-                  : ""
+                isFavorite ? "liked" : ""
               }
               onClick={() =>
                 setIsFavorite(
@@ -827,9 +692,7 @@ export default function CourseOverview() {
             <button
               type="button"
               className={
-                isLiked
-                  ? "liked"
-                  : ""
+                isLiked ? "liked" : ""
               }
               onClick={() =>
                 setIsLiked(
@@ -845,53 +708,35 @@ export default function CourseOverview() {
                   : "Like"}
               </span>
             </button>
-
           </div>
 
           {/* LEARN */}
 
           <div className="learn-box">
-
-            <h3>
-              What will you learn:
-            </h3>
+            <h3>What will you learn:</h3>
 
             <div className="learn-columns">
-
-              {course.learn.map(
-                (item) => (
-
-                  <span key={item}>
-
-                    <MdCheckCircle />
-
-                    {item}
-
-                  </span>
-
-                )
-              )}
-
+              {course.learn.map((item) => (
+                <span key={item}>
+                  <MdCheckCircle />
+                  {item}
+                </span>
+              ))}
             </div>
-
           </div>
 
           {/* COUPON */}
 
           <div className="coupon-box">
-
             <div className="coupon-title">
-
               <MdLocalOffer />
 
               <span>
                 Have a coupon?
               </span>
-
             </div>
 
             <div className="coupon-input">
-
               <input
                 type="text"
                 placeholder="Enter coupon"
@@ -907,16 +752,13 @@ export default function CourseOverview() {
               >
                 Apply
               </button>
-
             </div>
 
             <small>
-              Try coupon:{" "}
-              <b>MAX50</b>
+              Try coupon: <b>MAX50</b>
             </small>
 
             {couponMessage && (
-
               <p
                 className={
                   couponApplied
@@ -926,15 +768,12 @@ export default function CourseOverview() {
               >
                 {couponMessage}
               </p>
-
             )}
-
           </div>
 
           {/* PURCHASE */}
 
           <div className="purchase-buttons">
-
             <button
               type="button"
               className="cart-button"
@@ -956,21 +795,29 @@ export default function CourseOverview() {
             >
               Buy Now
             </button>
-
           </div>
 
           {buyMessage && (
-
             <div className="buy-message">
               {buyMessage}
             </div>
-
           )}
-
         </aside>
-
       </div>
-
     </div>
+  );
+}
+
+export default function CourseOverview() {
+  return (
+    <Suspense
+      fallback={
+        <div className="course-details-page">
+          <p>Loading course...</p>
+        </div>
+      }
+    >
+      <CourseOverviewContent />
+    </Suspense>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import {
@@ -10,7 +10,6 @@ import {
   MdLock,
   MdExpandMore,
   MdExpandLess,
-  MdMenuBook,
   MdAccessTime,
   MdForum,
   MdStar,
@@ -129,7 +128,7 @@ const courses = {
   },
 };
 
-export default function CourseDetails() {
+function CourseDetailsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -138,7 +137,6 @@ export default function CourseDetails() {
 
   const [activeTab, setActiveTab] = useState("about");
   const [activeVideo, setActiveVideo] = useState(course.videos[0]);
-
   const [openSection, setOpenSection] = useState("videos");
 
   const [comments, setComments] = useState([
@@ -178,14 +176,14 @@ export default function CourseDetails() {
 
   return (
     <div className="course-content-page">
-
       {/* TOP */}
       <div className="content-top">
-
         <button
           type="button"
           className="back-course"
-          onClick={() => router.push(`/student/course-overview?id=${courseId}`)}
+          onClick={() =>
+            router.push(`/student/course-overview?id=${courseId}`)
+          }
         >
           <MdArrowBack />
           Back to Course
@@ -202,18 +200,14 @@ export default function CourseDetails() {
             <span>{course.students}</span>
           </div>
         </div>
-
       </div>
 
       {/* MAIN GRID */}
       <div className="content-grid">
-
         {/* LEFT */}
         <main className="content-main">
-
           {/* VIDEO */}
           <div className="main-video">
-
             <iframe
               key={activeVideo.video}
               src={activeVideo.video}
@@ -221,12 +215,10 @@ export default function CourseDetails() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
-
           </div>
 
           {/* VIDEO TITLE */}
           <div className="current-video-info">
-
             <div>
               <span>NOW PLAYING</span>
               <h2>{activeVideo.title}</h2>
@@ -236,12 +228,10 @@ export default function CourseDetails() {
               <MdAccessTime />
               {activeVideo.duration}
             </div>
-
           </div>
 
           {/* TABS */}
           <div className="content-tabs">
-
             <button
               type="button"
               className={activeTab === "about" ? "active" : ""}
@@ -265,29 +255,24 @@ export default function CourseDetails() {
             >
               Discussion
             </button>
-
           </div>
 
           {/* ABOUT */}
           {activeTab === "about" && (
             <section className="tab-content">
-
               <h3>About Course</h3>
 
-              <p>
-                {course.description}
-              </p>
+              <p>{course.description}</p>
 
               <p>
-                This course covers everything you need to start
-                developing modern websites and web applications.
-                You will learn practical concepts step by step.
+                This course covers everything you need to start developing
+                modern websites and web applications. You will learn
+                practical concepts step by step.
               </p>
 
               <h3>What You Will Learn</h3>
 
               <div className="learn-items">
-
                 <span>
                   <MdCheckCircle />
                   Basic Programming
@@ -317,16 +302,13 @@ export default function CourseDetails() {
                   <MdCheckCircle />
                   Create Responsive Website
                 </span>
-
               </div>
-
             </section>
           )}
 
           {/* REVIEWS */}
           {activeTab === "reviews" && (
             <section className="tab-content">
-
               <div className="tab-heading">
                 <h3>Course Reviews</h3>
 
@@ -337,36 +319,27 @@ export default function CourseDetails() {
               </div>
 
               <div className="reviews-list">
-
                 {comments.map((item, index) => (
                   <div className="review-item" key={index}>
-
                     <div className="review-avatar">
                       {item.name.charAt(0)}
                     </div>
 
                     <div className="review-body">
-
                       <strong>{item.name}</strong>
 
-                      <div className="review-stars">
-                        ★★★★★
-                      </div>
+                      <div className="review-stars">★★★★★</div>
 
                       <p>{item.text}</p>
-
                     </div>
-
                   </div>
                 ))}
-
               </div>
 
               <form
                 className="discussion-form"
                 onSubmit={handleComment}
               >
-
                 <input
                   type="text"
                   placeholder="Write a review..."
@@ -374,53 +347,43 @@ export default function CourseDetails() {
                   onChange={(e) => setComment(e.target.value)}
                 />
 
-                <button type="submit">
-                  Send
-                </button>
-
+                <button type="submit">Send</button>
               </form>
-
             </section>
           )}
 
           {/* DISCUSSION */}
           {activeTab === "discussion" && (
             <section className="tab-content">
-
               <div className="discussion-title">
                 <MdForum />
 
                 <div>
                   <h3>Course Discussion</h3>
                   <p>
-                    Ask questions and discuss this course
-                    with other students.
+                    Ask questions and discuss this course with other
+                    students.
                   </p>
                 </div>
               </div>
 
               <div className="discussion-box">
-
-                <div className="discussion-avatar">
-                  S
-                </div>
+                <div className="discussion-avatar">S</div>
 
                 <div>
                   <strong>Student Discussion</strong>
 
                   <p>
-                    Have a question about this lesson?
-                    Start a discussion here.
+                    Have a question about this lesson? Start a discussion
+                    here.
                   </p>
                 </div>
-
               </div>
 
               <form
                 className="discussion-form"
                 onSubmit={handleComment}
               >
-
                 <input
                   type="text"
                   placeholder="Start a discussion..."
@@ -428,29 +391,20 @@ export default function CourseDetails() {
                   onChange={(e) => setComment(e.target.value)}
                 />
 
-                <button type="submit">
-                  Send
-                </button>
-
+                <button type="submit">Send</button>
               </form>
-
             </section>
           )}
-
         </main>
 
         {/* RIGHT SIDEBAR */}
         <aside className="course-content-sidebar">
-
           {/* PROGRESS */}
           <div className="side-card progress-card">
-
             <div className="side-card-heading">
               <h3>Progress</h3>
 
-              <button type="button">
-                ...
-              </button>
+              <button type="button">...</button>
             </div>
 
             <div className="progress-course-name">
@@ -458,17 +412,14 @@ export default function CourseDetails() {
             </div>
 
             <div className="progress-bar">
-
               <div
                 className="progress-fill"
                 style={{
                   width: `${Math.round(
-                    ((activeVideo.id - 1) / course.videos.length) *
-                      100
+                    ((activeVideo.id - 1) / course.videos.length) * 100
                   )}%`,
                 }}
               />
-
             </div>
 
             <div className="progress-text">
@@ -483,12 +434,10 @@ export default function CourseDetails() {
                 %
               </span>
             </div>
-
           </div>
 
           {/* VIDEO COURSES */}
           <div className="side-card">
-
             <button
               type="button"
               className="section-toggle"
@@ -498,10 +447,7 @@ export default function CourseDetails() {
                 )
               }
             >
-
-              <span>
-                Video Courses
-              </span>
+              <span>Video Courses</span>
 
               <span>
                 ({activeVideo.id}/{course.videos.length})
@@ -511,32 +457,25 @@ export default function CourseDetails() {
                   <MdExpandMore />
                 )}
               </span>
-
             </button>
 
             {openSection === "videos" && (
               <div className="lesson-list">
-
                 {course.videos.map((video) => (
                   <button
                     type="button"
                     key={video.id}
                     className={`lesson-item ${
-                      activeVideo.id === video.id
-                        ? "active"
-                        : ""
+                      activeVideo.id === video.id ? "active" : ""
                     }`}
                     onClick={() => selectVideo(video)}
                   >
-
                     <span className="lesson-icon">
-
                       {video.unlocked ? (
                         <MdPlayArrow />
                       ) : (
                         <MdLock />
                       )}
-
                     </span>
 
                     <span className="lesson-name">
@@ -546,18 +485,14 @@ export default function CourseDetails() {
                     <span className="lesson-duration">
                       {video.duration}
                     </span>
-
                   </button>
                 ))}
-
               </div>
             )}
-
           </div>
 
           {/* AUDIO */}
           <div className="side-card collapsed-card">
-
             <button
               type="button"
               className="section-toggle"
@@ -567,10 +502,7 @@ export default function CourseDetails() {
                 )
               }
             >
-
-              <span>
-                Audio
-              </span>
+              <span>Audio</span>
 
               <span>
                 (1/25)
@@ -580,7 +512,6 @@ export default function CourseDetails() {
                   <MdExpandMore />
                 )}
               </span>
-
             </button>
 
             {openSection === "audio" && (
@@ -588,12 +519,10 @@ export default function CourseDetails() {
                 Audio lessons will appear here.
               </div>
             )}
-
           </div>
 
           {/* MODULE */}
           <div className="side-card collapsed-card">
-
             <button
               type="button"
               className="section-toggle"
@@ -603,10 +532,7 @@ export default function CourseDetails() {
                 )
               }
             >
-
-              <span>
-                Module
-              </span>
+              <span>Module</span>
 
               <span>
                 (1/50)
@@ -616,7 +542,6 @@ export default function CourseDetails() {
                   <MdExpandMore />
                 )}
               </span>
-
             </button>
 
             {openSection === "module" && (
@@ -624,12 +549,10 @@ export default function CourseDetails() {
                 Course modules will appear here.
               </div>
             )}
-
           </div>
 
           {/* QUIZ */}
           <div className="side-card collapsed-card">
-
             <button
               type="button"
               className="section-toggle"
@@ -639,10 +562,7 @@ export default function CourseDetails() {
                 )
               }
             >
-
-              <span>
-                Quiz
-              </span>
+              <span>Quiz</span>
 
               <span>
                 (1/10)
@@ -652,7 +572,6 @@ export default function CourseDetails() {
                   <MdExpandMore />
                 )}
               </span>
-
             </button>
 
             {openSection === "quiz" && (
@@ -660,13 +579,23 @@ export default function CourseDetails() {
                 Quiz will appear here.
               </div>
             )}
-
           </div>
-
         </aside>
-
       </div>
-
     </div>
+  );
+}
+
+export default function CourseDetails() {
+  return (
+    <Suspense
+      fallback={
+        <div className="course-content-page">
+          <p>Loading course...</p>
+        </div>
+      }
+    >
+      <CourseDetailsContent />
+    </Suspense>
   );
 }
